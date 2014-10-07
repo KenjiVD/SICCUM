@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::get('/', "VistaController@VistaInicio");
+
+Route::get('/login',function (){
+	return View::make('login');
 });
+
+Route::post("NuevaMateria","MateriaController@Nuevo");
+Route::post("NuevoAlumno","AlumnoController@Nuevo");
+Route::post("NuevaCalificacion","CalificacionController@Nuevo");
+Route::post("NuevaColegiatura","ColegiaturaController@Nuevo");

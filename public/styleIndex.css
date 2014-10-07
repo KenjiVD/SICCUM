@@ -1,0 +1,129 @@
+body{
+	background-color: #F0F0F0;
+}
+header{
+	width: 75%;
+	height: 100px;
+	margin-left: 150px;
+	background-color: #fff;
+}
+header img{
+	width: 100px;
+	height: 100px;
+	margin-top: -34;
+}
+header p{
+	margin-left: 300px;
+	text-align: center;
+}
+footer{
+	width: 75%;
+	height: 50px;
+	background-color: #E0E0E0 ;
+	margin-left: 150px;
+	margin-top: 530px;
+	text-align: center;
+}
+#menu{
+	margin-top: -16px;
+	width: 15%;
+	height: 500px;
+	background-color: #F8F8F8;
+}
+#menu li{
+	list-style-type: none;
+	margin-bottom: 100px;
+	text-align: center;
+}
+#menu li:hover{
+	cursor: pointer;
+	height: 50px;
+}
+#contenido{
+	position: absolute;
+	width: 74%;
+	height: 500px;
+	top: 120px;
+	left: 158px;
+	background-color: #fff;
+}
+#altas{
+	width: 80%;
+	height: 450px;
+	margin-top: -480px;
+	margin-left: 175px;
+	border-radius: 10px;
+	border: solid 1px;
+}
+#alumno{
+	margin-top: 30px;
+	margin-left: 300px;
+	display: none;
+}
+#calificaciones{
+	margin-top: 30px;
+	margin-left: 300px;
+	display: none;
+}
+#colegiaturas{
+	margin-top: 30px;
+	margin-left: 300px; 
+	display: block;
+}
+#materia{
+	margin-top: 30px;
+	margin-left: 300px; 
+	display: none;
+}
+#alumno input{
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#alumno select{
+	text-align: center;
+	height: 30px;
+	width: 146px;
+	margin-bottom: 10px;
+}
+#calificaciones input{
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#calificaciones select{
+	text-align: center;
+	height: 30px;
+	width: 146px;
+	margin-bottom: 10px;
+}
+#colegiaturas input{
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#colegiaturas select{
+	text-align: center;
+	height: 30px;
+	width: 146px;
+	margin-bottom: 10px;
+}
+#materia input{
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+#materia select{
+	text-align: center;
+	height: 30px;
+	width: 146px;
+	margin-bottom: 10px;
+}
+.enviar input{
+	position: absolute;
+	left: 520px;
+	top: 400px;
+	width: 100px;
+	height: 40px;
+}
