@@ -8,6 +8,7 @@
 	<header><p>Sistema de Altas</p> <img src="img/logo.jpg"></header>
 	<div id="contenido">
 		<div id="menu">
+			<li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
 			<li><p>Alta Coordinador</p></li>
 			<li><p onclick="mostrar()">Ingresar Alumno</p></li>
 			<li><p>Ingresar Calificación</p></li>

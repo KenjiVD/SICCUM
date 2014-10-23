@@ -10,6 +10,16 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+App::missing(function($exception)
+{
+	return Redirect::to('/');
+});
+
+App::error(function(Exception $exception)
+{
+	return Redirect::to('/');
+});
+
 Route::filter('auth', function(){
 	if(  Session::get('usuario') == null)
 		return Redirect::to('/');

@@ -11,6 +11,7 @@
 			<ul id="menu">
 				<li><a href="">Inicio</a></li>
 	            <li><a href="">Administracion de Perfiles</a></li>
+	            <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
 	        </ul>
 		</div>
 	</header>

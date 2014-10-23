@@ -58,7 +58,7 @@ footer{
 #alumno{
 	margin-top: 30px;
 	margin-left: 300px;
-	display: none;
+	display: block;
 }
 #calificaciones{
 	margin-top: 30px;
@@ -130,7 +130,7 @@ footer{
 #coordinador{
 	margin-top: 30px;
 	margin-left: 300px; 
-	display: block;
+	display: none;
 }
 #coordinador input{
 	text-align: center;
