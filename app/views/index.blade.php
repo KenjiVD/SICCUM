@@ -8,12 +8,21 @@
 	<header><p>Sistema de Altas</p> <img src="img/logo.jpg"></header>
 	<div id="contenido">
 		<div id="menu">
-			<li><p>Inicio</p></li>
+			<li><p>Alta Coordinador</p></li>
 			<li><p onclick="mostrar()">Ingresar Alumno</p></li>
 			<li><p>Ingresar Calificación</p></li>
 			<li><p>Ingresar Colegiatura</p></li>
 		</div>
-	<div id="altas"><div id="alumno">
+	<div id="altas">
+	<div id="coordinador">
+		<form action="{{url('NuevoPerfil')}}" method="POST">
+			<label>Dar de alta a Coordinador</label><br><br>
+			<input name="usuario" placeholder="usuario" type="text" required/><br>
+			<input name="contrasena" placeholder="contraseña" type="text" required/><br>
+			<div class="enviar"><input type="submit" value="Nuevo"/></div>
+		</form>
+	</div>
+	<div id="alumno">
 		<form action="{{(url('NuevoAlumno'))}}" method="post">
 			<label>Dar de alta a alumno</label><br><br>
 			<input placeholder="Nombre" type="text" name="nombre" required/><br>

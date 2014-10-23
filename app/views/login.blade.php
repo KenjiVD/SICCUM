@@ -6,7 +6,6 @@
 </head>
 <body>
 	<header>  
-		<p>sistema</p>
 		<img src="img/siccum.png">
 	</header>
 	<div id="caja">

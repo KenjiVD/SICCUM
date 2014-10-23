@@ -11,11 +11,11 @@ class UsuariosController extends BaseController {
 		if ($validado) {
 			switch ($_POST["tipo"]) {
 				case 4:
-					$usuariosesion = DB::table("alumno")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
+					$usuariosesion = DB::table("alumno")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idAlumno);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 				case 3:
-					$usuariosesion = DB::table("coordinador")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
+					$usuariosesion = DB::table("coordinador")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idCoordinador);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 				case 2:
@@ -43,24 +43,26 @@ class UsuariosController extends BaseController {
 					$usuariosesion = DB::table("coordinador")->insertGetId(array("nombre" => $_POST["usuario"], "contrasena" => $_POST["contrasena"], "matriculac" => $_POST["contrasena"]));
 				}
 			}
-		return Redirect::to("/inicio/administrador/alta"); 
+		return Redirect::to("/inicio"); 
 	}
 
 	public function Alta($tipo,$id){
 		if ($tipo == 3) {
 			DB::table("coordinador")->where("idCoordinador",$id)->update(array("estadoperfil" => 1));
+			return Redirect::to("/inicio"); 
 		}else{
 			DB::table("alumno")->where("idAlumno",$id)->update(array("estadoperfil" => 1));
+			return Redirect::to("/inicio"); 
 		}
-		return Redirect::to("/inicio/administrador/listaperfiles"); 
 	}
 	
 	public function Baja($tipo,$id){
 		if ($tipo == 3) {
 			DB::table("coordinador")->where("idCoordinador",$id)->update(array("estadoperfil" => 0));
+			return Redirect::to("/inicio"); 
 		}else{
 			DB::table("alumno")->where("idAlumno",$id)->update(array("estadoperfil" => 0));
+			return Redirect::to("/inicio"); 
 		}
-		return Redirect::to("/inicio/administrador/listaperfiles"); 
 	}
 }

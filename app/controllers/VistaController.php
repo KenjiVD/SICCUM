@@ -20,12 +20,20 @@ class VistaController extends BaseController {
 				->with("materia",$materia);
 				break;
 			case 2:
-				
+				$alumnosactivos = DB::table("alumno")->where("estadoperfil",1)->get();
+				$alumnosinactivos = DB::table("alumno")->where("estadoperfil",0)->get();
+				$coordinadoresactivos = DB::table("coordinador")->where("estadoperfil",1)->get();
+				$coordinadoresinactivos = DB::table("coordinador")->where("estadoperfil",0)->get();
+				return View::make("indexAdministrador")
+					->with("alumnosactivos",$alumnosactivos)
+					->with("alumnosinactivos",$alumnosinactivos)
+					->with("coordinadoresactivos",$coordinadoresactivos)
+					->with("coordinadoresinactivos",$coordinadoresinactivos);
 				break;
 			case 3:
-				$permisos = DB::table("alumno")->join("permiso",function($join){
+				$permisos = DB::table("permiso")->join("alumno",function($join){
 					$join->on("permiso.Alumno_idAlumno","=","alumno.idAlumno");
-				})->where("Coordinador_idCoordinador", Session::get("usuario"))->get();
+				})->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estado", 0)->get();
 				return View::make("coordinador")->with("permisos", $permisos);
 				break;
 			case 4:
@@ -33,19 +41,5 @@ class VistaController extends BaseController {
 				return View::make("indexAlumno")->with("permisos", $permisos);
 				break;
 		}
-	}
-	public function VistaAltaPerfil(){
-		return View::make("altaperfiles");
-	}
-	public function VistaListaPerfil(){
-		$alumnosactivos = DB::table("alumno")->where("estadoperfil",1)->get();
-		$alumnosinactivos = DB::table("alumno")->where("estadoperfil",0)->get();
-		$coordinadoresactivos = DB::table("coordinador")->where("estadoperfil",1)->get();
-		$coordinadoresinactivos = DB::table("coordinador")->where("estadoperfil",0)->get();
-		return View::make("listaperfiles")
-		->with("alumnosactivos",$alumnosactivos)
-		->with("alumnosinactivos",$alumnosinactivos)
-		->with("coordinadoresactivos",$coordinadoresactivos)
-		->with("coordinadoresinactivos",$coordinadoresinactivos);
 	}
 }

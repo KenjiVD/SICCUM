@@ -127,3 +127,19 @@ footer{
 	width: 100px;
 	height: 40px;
 }
+#coordinador{
+	margin-top: 30px;
+	margin-left: 300px; 
+	display: block;
+}
+#coordinador input{
+	text-align: center;
+	height: 30px;
+	margin-bottom: 10px;
+}
+#coordinador select{
+	text-align: center;
+	height: 30px;
+	width: 146px;
+	margin-bottom: 10px;
+}

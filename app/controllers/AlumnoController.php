@@ -61,4 +61,12 @@ class AlumnoController extends BaseController {
 			return Redirect::to("/inicio");
 		}
 	}
+	public function AccionPermiso($accion,$id){
+		if ($accion == 1) {
+			DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 1));
+		}else{
+			DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 2));
+		}
+		return Redirect::to("/inicio");
+	}
 }

@@ -19,6 +19,11 @@ Route::filter('admin', function(){
 	if(  Session::get('tipo') != 2)
 		return Redirect::to('/inicio');
 });
+
+Route::filter('adminSICCUM', function(){
+	if(  Session::get('tipo') != 1)
+		return Redirect::to('/inicio');
+});
 Route::filter('coordinador', function(){
 	if(  Session::get('tipo') != 3)
 		return Redirect::to('/inicio');
@@ -31,14 +36,16 @@ Route::filter('noauth', function(){
 
 Route::group(array('before' => 'auth'), function(){
 	//a estas rutas solo puedo entrar si estoy loggeado
+	Route::group(array('before' => 'adminSICCUM'), function(){
+
+	});
 	Route::group(array('before' => 'admin'), function(){
-		Route::get('/inicio/administrador/alta', "VistaController@VistaAltaPerfil");
-		Route::get('/inicio/administrador/listaperfiles', "VistaController@VistaListaPerfil");
+
 		Route::get('/Baja/{tipo}/{id}', "UsuariosController@Baja");
 		Route::get('/Alta/{tipo}/{id}', "UsuariosController@Alta");
 	});
 	Route::group(array('before' => 'coordinador'), function(){
-		
+		Route::get('/coordinador/permiso/{accion}/{id}',"AlumnoController@AccionPermiso");
 	});
 	Route::get('/inicio', "VistaController@VistaInicio");
 });
