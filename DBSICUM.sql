@@ -1,10 +1,10 @@
-CREATE DATABASE  IF NOT EXISTS "siccum" /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `siccum` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `siccum`;
--- MySQL dump 10.13  Distrib 5.6.13, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.6.19, for Win64 (x86_64)
 --
 -- Host: localhost    Database: siccum
 -- ------------------------------------------------------
--- Server version	5.6.14
+-- Server version	5.6.21-enterprise-commercial-advanced-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,9 +26,10 @@ DROP TABLE IF EXISTS `administrador`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `administrador` (
   `idadministrador` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
+  `nombre` varchar(145) NOT NULL,
+  `contrasena` varchar(45) NOT NULL,
   PRIMARY KEY (`idadministrador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,6 +38,7 @@ CREATE TABLE `administrador` (
 
 LOCK TABLES `administrador` WRITE;
 /*!40000 ALTER TABLE `administrador` DISABLE KEYS */;
+INSERT INTO `administrador` VALUES (1,'Jesus','1234');
 /*!40000 ALTER TABLE `administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,9 +51,10 @@ DROP TABLE IF EXISTS `administradorsiccum`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `administradorsiccum` (
   `idadministradorsiccum` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(45) DEFAULT NULL,
+  `nombre` varchar(145) NOT NULL,
+  `contrasena` varchar(45) NOT NULL,
   PRIMARY KEY (`idadministradorsiccum`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,6 +63,7 @@ CREATE TABLE `administradorsiccum` (
 
 LOCK TABLES `administradorsiccum` WRITE;
 /*!40000 ALTER TABLE `administradorsiccum` DISABLE KEYS */;
+INSERT INTO `administradorsiccum` VALUES (1,'Santiago','1234');
 /*!40000 ALTER TABLE `administradorsiccum` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -78,10 +82,12 @@ CREATE TABLE `alumno` (
   `carrera_idcarrera` int(10) unsigned NOT NULL,
   `nivel_idnivel` int(10) unsigned NOT NULL,
   `Coordinador_idCoordinador` int(10) unsigned DEFAULT NULL,
-  `nombre` varchar(45) NOT NULL,
+  `nombre` varchar(145) NOT NULL,
   `matriculaa` int(10) unsigned DEFAULT NULL,
   `idperiodo` int(10) NOT NULL,
   `curp` varchar(45) NOT NULL,
+  `contrasena` varchar(45) NOT NULL,
+  `estadoperfil` int(11) NOT NULL DEFAULT '1' COMMENT '1 = activo\n0 = inactivo',
   PRIMARY KEY (`idAlumno`),
   KEY `Alumno_FKIndex2` (`nivel_idnivel`),
   KEY `Alumno_FKIndex3` (`carrera_idcarrera`),
@@ -97,7 +103,7 @@ CREATE TABLE `alumno` (
 
 LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
-INSERT INTO `alumno` VALUES (1,NULL,NULL,10,1,10,NULL,'Emanuel',131101,13,'ROPE921204');
+INSERT INTO `alumno` VALUES (1,NULL,NULL,10,1,10,5,'Emanuel',131101,13,'ROPE921204','131101',1);
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,9 +203,12 @@ DROP TABLE IF EXISTS `coordinador`;
 CREATE TABLE `coordinador` (
   `idCoordinador` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `matriculac` int(10) unsigned NOT NULL,
-  `nombre` varchar(45) NOT NULL,
-  PRIMARY KEY (`idCoordinador`,`matriculac`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nombre` varchar(145) NOT NULL,
+  `contrasena` varchar(45) NOT NULL,
+  `estadoperfil` int(11) NOT NULL DEFAULT '1' COMMENT '1 = activo\n0 = inactivo',
+  PRIMARY KEY (`idCoordinador`,`matriculac`),
+  UNIQUE KEY `matriculac_UNIQUE` (`matriculac`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,6 +217,7 @@ CREATE TABLE `coordinador` (
 
 LOCK TABLES `coordinador` WRITE;
 /*!40000 ALTER TABLE `coordinador` DISABLE KEYS */;
+INSERT INTO `coordinador` VALUES (1,111,'Jesus Emanuel','1234',1),(5,1233,'Andres','1233',1),(7,1239,'Fani','1239',1);
 /*!40000 ALTER TABLE `coordinador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,10 +368,11 @@ CREATE TABLE `permiso` (
   `fechaSolicitud` date DEFAULT NULL,
   `fechaInicio` date DEFAULT NULL,
   `fechaFin` date DEFAULT NULL,
-  `estado` int(10) unsigned DEFAULT NULL,
+  `estado` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '0 = no visto\n1 = aceptado\n2 = rechazado',
   PRIMARY KEY (`idpermiso`),
+  UNIQUE KEY `idpermiso_UNIQUE` (`idpermiso`),
   KEY `permiso_FKIndex1` (`Alumno_idAlumno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -370,6 +381,7 @@ CREATE TABLE `permiso` (
 
 LOCK TABLES `permiso` WRITE;
 /*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
+INSERT INTO `permiso` VALUES (1,1,131101,'','permisos/1.png','2014-10-22','2014-10-22','2014-10-29',2);
 /*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -382,4 +394,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-10-07 16:27:01
+-- Dump completed on 2014-10-23  1:38:06
