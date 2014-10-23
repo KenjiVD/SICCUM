@@ -35,6 +35,11 @@ footer{
 	margin-bottom: 100px;
 	text-align: center;
 }
+#menu li a{
+	list-style-type: none;
+	margin-bottom: 100px;
+	text-align: center;
+}
 #menu li:hover{
 	cursor: pointer;
 	height: 50px;
@@ -142,4 +147,8 @@ footer{
 	height: 30px;
 	width: 146px;
 	margin-bottom: 10px;
+}
+#cerrar{
+	text-decoration: none;
+	color: black;
 }

@@ -158,3 +158,13 @@ table tr td{
 .negritas{
 	font-weight: bold;
 }
+#permisos{
+	margin-left: 200px;
+}
+#permisos h2{
+	margin-left: 200px;
+}
+#formulario{
+	margin-top: 100px;
+	margin-left: 400px;
+}
