@@ -8,6 +8,7 @@
 	<header><p>Sistema de Altas</p> <img src="img/logo.jpg"></header>
 	<div id="contenido">
 		<div id="menu">
+			<li><p>Inicio</p></li>
 			<li><p onclick="mostrar()">Ingresar Alumno</p></li>
 			<li><p>Ingresar Calificación</p></li>
 			<li><p>Ingresar Colegiatura</p></li>
