@@ -2,6 +2,8 @@
 
 class AlumnoController extends BaseController {
 	public function Nuevo(){
+		date_default_timezone_set('America/Mexico_City');
+		$fecha = date('Y-m-d');
 		$matricula = $_POST["periodo"].$_POST["carrera"].$_POST["grupo"];
 
 		$mat = DB::table("alumno")->insertGetId(array(
@@ -10,6 +12,7 @@ class AlumnoController extends BaseController {
 			"nivel_idnivel" => $_POST["nivel"],
 			"grupo_idgrupo" => $_POST["grupo"],
 			"curp" => $_POST["curp"],
+			"fecha" => $fecha,
 			"nombre" =>$_POST["nombre"]));
 		$matricula = $matricula.$mat;
 

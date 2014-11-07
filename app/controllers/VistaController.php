@@ -42,4 +42,40 @@ class VistaController extends BaseController {
 				break;
 		}
 	}
+
+	public function VistaCalificacionesAlumno(){
+		$calificaciones = DB::table("calificaciones")->join("materia",function($join){
+				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
+			})->where("Alumno_idAlumno",Session::get("usuario"))
+		->orderBy('periodo_idperiodo', 'asc')->get();
+	}
+
+	public function VistaCoordinadorCalificacionesAlumno($id){
+		$calificaciones = DB::table("calificaciones")->join("materia",function($join){
+				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
+			})->where("Alumno_idAlumno",$id)
+		->orderBy('periodo_idperiodo', 'asc')->get();
+	}
+
+	public function VistaColegiaturasAlumno(){
+		$g = new HomeController();
+		date_default_timezone_set('America/Mexico_City');
+		$fechaactual = date('Y-m-d');
+		$seccion = DB::table("colegiatura")->where("Alumno_idAlumno",Session::get("usuario"));
+		$colegiaturas = $seccion->orderBy('periodo_idperiodo', 'asc')->get();
+		$concole = $seccion->count();
+		$usuario = DB::table("alumno")->where("idAlumno",Session::get("usuario"))->first();
+		$adeudo = ($g->restaFechas($usuario->fecha, $fechaactual))-$concole;
+	}
+
+	public function VistaCoordinadorColegiaturasAlumno($id){
+		$g = new HomeController();
+		date_default_timezone_set('America/Mexico_City');
+		$fechaactual = date('Y-m-d');
+		$seccion = DB::table("colegiatura")->where("Alumno_idAlumno",$id);
+		$colegiaturas = $seccion->orderBy('periodo_idperiodo', 'asc')->get();
+		$concole = $seccion->count();
+		$usuario = DB::table("alumno")->where("idAlumno",$id)->first();
+		$adeudo = ($g->restaFechas($usuario->fecha, $fechaactual))-$concole;
+	}
 }

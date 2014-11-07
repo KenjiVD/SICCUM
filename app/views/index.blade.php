@@ -2,16 +2,17 @@
 <head>
 	<title></title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{{(url('/'))}}/styleIndex.css">
+	{{HTML::style('styleIndex.css')}}
 </head>
 <body>
 	<header><p>Sistema de Altas</p> <img src="img/logo.jpg"></header>
 	<div id="contenido">
 		<div id="menu">
-			<li><p>Alta Coordinador</p></li>
-			<li><p>Ingresar Alumno</p></li>
-			<li><p>Ingresar Calificación</p></li>
-			<li><a><p>Ingresar Colegiatura</p></a></li>
+			<li><a onclick="MostrarCoordinador()"><p>Alta Coordinador</p></a></li>
+			<li><a onclick="MostrarAlumno()"><p>Ingresar Alumno</p></a></li>
+			<li><a onclick="MostrarCalificaciones()"><p>Ingresar Calificación</p></a></li>
+			<li><a onclick="MostrarColegiaturas()"><p>Ingresar Colegiatura</p></a></li>
+			<li><a onclick="MostrarMateria()"><p>Agregar materia</p></a></li>
 			<li><a id="cerrar" href="{{url('/')}}/logout"><p>Cerrar sesion</p></a></li>
 		</div>
 	<div id="altas">
@@ -144,7 +145,7 @@
 	</div>
 	<footer>
 		<p>Cento Universitario Mesoamericano Joaquin Miguel Gutierrez</p>
-		<script type="text/javascript" src="{{(url('/'))}}/scriptIndex.js" ></script>
+		{{ HTML::script('scriptIndex.js')}}</script>
 	</footer>
 </body>
 </html>

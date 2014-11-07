@@ -32,7 +32,7 @@ footer{
 }
 #menu li{
 	list-style-type: none;
-	margin-bottom: 100px;
+	margin-bottom: 71px;
 	text-align: center;
 }
 #menu li a{
@@ -63,7 +63,7 @@ footer{
 #alumno{
 	margin-top: 30px;
 	margin-left: 300px;
-	display: block;
+	display: none;
 }
 #calificaciones{
 	margin-top: 30px;
@@ -135,7 +135,7 @@ footer{
 #coordinador{
 	margin-top: 30px;
 	margin-left: 300px; 
-	display: none;
+	display: block;
 }
 #coordinador input{
 	text-align: center;
