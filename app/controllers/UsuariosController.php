@@ -65,4 +65,23 @@ class UsuariosController extends BaseController {
 			return Redirect::to("/inicio"); 
 		}
 	}
+
+	public function BusquedaAlumno(){
+		$g = new HomeController();
+		$validado = $g->ValidarNoVacioUno($_POST["texto"]);
+		if ($validado) {
+			$alumnos = DB::table("alumno")
+			->where("Coordinador_idCoordinador", Session::get("usuario"))
+			->where(function($query){
+				$cadena = explode(" ", $_POST["texto"]);
+				for ($i=0;$i<count($cadena);$i++) {
+					$query->orwhere("matriculaa","like","%".$cadena[$i]."%")
+					->orwhere("nombre","like","%".$cadena[$i]."%");
+				}
+			})->orderBy('idAlumno', 'asc')->get();
+			return View::make("busqueda")->with("alumnos",$alumnos);
+		}else{
+			return Redirect::to("/buscaralumno");
+		}
+	}
 }

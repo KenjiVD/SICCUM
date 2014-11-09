@@ -10,9 +10,7 @@
         <div id="conten-menu">
         <ul id="menu">
             <li><a href="">Inicio</a></li>
-            <li><a href="">Solicitudes de Permiso</a></li>
-            <li><a href="">Consultar Calificaciones</a></li>
-            <li><a href="">Consultar deudas de Alumnos</a></li>
+            <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
             <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
         </ul>
     </div>

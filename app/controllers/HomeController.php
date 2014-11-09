@@ -15,18 +15,21 @@ class HomeController extends BaseController {
 	|
 	*/
 	public function restaFechas($dFecIni, $dFecFin){
-		$dFecIni = str_replace("-","",$dFecIni);
-		$dFecIni = str_replace("/","",$dFecIni);
-		$dFecFin = str_replace("-","",$dFecFin);
-		$dFecFin = str_replace("/","",$dFecFin);
+		$dFecIni = str_replace("-"," ",$dFecIni);
+		$dFecIni = str_replace("/"," ",$dFecIni);
+		$dFecFin = str_replace("-"," ",$dFecFin);
+		$dFecFin = str_replace("/"," ",$dFecFin);
 
-		ereg("([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecIni, $aFecIni);
-		ereg( "([0-9]{1,2})([0-9]{1,2})([0-9]{2,4})", $dFecFin, $aFecFin);
+		$aFecIni = explode(" ", $dFecIni);
+		$aFecFin = explode(" ", $dFecFin);
 
-		$date1 = mktime(0,0,0,$aFecIni[2], $aFecIni[1], $aFecIni[3]);
-		$date2 = mktime(0,0,0,$aFecFin[2], $aFecFin[1], $aFecFin[3]);
+		$timestamp1 = mktime(0,0,0,$aFecIni[1], $aFecIni[2], $aFecIni[0]);
+		$timestamp2 = mktime(0,0,0,$aFecFin[1], $aFecFin[2], $aFecFin[0]);
 
-		return round(($date2 - $date1) / (60 * 60 * 24 * 30));
+		$segundos_diferencia = $timestamp1 - $timestamp2; 
+		$mes_diferencia = floor(abs($segundos_diferencia / (60 * 60 * 24 * 30))); 
+
+		return $mes_diferencia;
 	}
 
 	public function ValidarNoVacio($array){

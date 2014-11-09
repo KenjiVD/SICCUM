@@ -10,16 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-App::missing(function($exception)
-{
-	return Redirect::to('/');
-});
-
-App::error(function(Exception $exception)
-{
-	return Redirect::to('/');
-});
-
 Route::filter('auth', function(){
 	if(  Session::get('usuario') == null)
 		return Redirect::to('/');
@@ -27,6 +17,11 @@ Route::filter('auth', function(){
 
 Route::filter('admin', function(){
 	if(  Session::get('tipo') != 2)
+		return Redirect::to('/inicio');
+});
+
+Route::filter('alumno', function(){
+	if(  Session::get('tipo') != 4)
 		return Redirect::to('/inicio');
 });
 
@@ -49,6 +44,10 @@ Route::group(array('before' => 'auth'), function(){
 	Route::group(array('before' => 'adminSICCUM'), function(){
 
 	});
+	Route::group(array('before' => 'alumno'), function(){
+		Route::get("/calificaciones","VistaController@VistaCalificacionesAlumno");
+		Route::get("/colegiaturas","VistaController@VistaColegiaturasAlumno");
+	});
 	Route::group(array('before' => 'admin'), function(){
 
 		Route::get('/Baja/{tipo}/{id}', "UsuariosController@Baja");
@@ -56,6 +55,10 @@ Route::group(array('before' => 'auth'), function(){
 	});
 	Route::group(array('before' => 'coordinador'), function(){
 		Route::get('/coordinador/permiso/{accion}/{id}',"AlumnoController@AccionPermiso");
+		Route::get("/calificaciones/{id}","VistaController@VistaCoordinadorCalificacionesAlumno");
+		Route::get("/colegiaturas/{id}","VistaController@VistaCoordinadorColegiaturasAlumno");
+		Route::get("/buscaralumno","VistaController@VistaBusquedaAlumno");
+		Route::post("/buscaralumno","UsuariosController@BusquedaAlumno");
 	});
 	Route::get('/inicio', "VistaController@VistaInicio");
 });

@@ -9,6 +9,8 @@
 		<div id="conten-menu">
 		<ul id="menu">
             <li><a href="">Permisos Solicitados</a></li>
+            <li><a href="{{(url('/'))}}/calificaciones">Consultar Calificaciones</a></li>
+            <li><a href="{{(url('/'))}}/colegiaturas">Consultar Adeudos</a></li>
             <li><a href="{{(url('/'))}}/logout">Cerrar Sesion</a></li>
         </ul>
 	</div>
