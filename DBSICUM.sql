@@ -177,7 +177,7 @@ CREATE TABLE `colegiatura` (
   `periodo_idperiodo` int(10) unsigned NOT NULL,
   `Alumno_idAlumno` int(10) unsigned NOT NULL,
   `matriculaa` int(10) unsigned NOT NULL,
-  `mes` int(10) unsigned NOT NULL,
+  `mes` date NOT NULL,
   PRIMARY KEY (`idcolegiatura`),
   KEY `colegiatura_FKIndex1` (`Alumno_idAlumno`),
   KEY `colegiatura_FKIndex2` (`periodo_idperiodo`)
@@ -190,7 +190,7 @@ CREATE TABLE `colegiatura` (
 
 LOCK TABLES `colegiatura` WRITE;
 /*!40000 ALTER TABLE `colegiatura` DISABLE KEYS */;
-INSERT INTO `colegiatura` VALUES (1,13,1,131101,10);
+INSERT INTO `colegiatura` VALUES (1,13,1,131101,'2014-10-01');
 /*!40000 ALTER TABLE `colegiatura` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -395,4 +395,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-09 10:53:38
+-- Dump completed on 2014-11-09 12:15:32
