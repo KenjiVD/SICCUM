@@ -44,25 +44,30 @@ class VistaController extends BaseController {
 	}
 
 	public function VistaCalificacionesAlumno(){
-		$calificaciones = DB::table("calificaciones")->select(array('periodo.nombre as nombrep',"materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
+		$calificaciones = DB::table("calificaciones")->select(array("nivel.nombre as nombren","periodo.nombre as nombrep","materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
 		->join("materia",function($join){
 				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
 			})->join("periodo",function($join){
 				$join->on("calificaciones.periodo_idperiodo","=","periodo.idperiodo");
+			})->join("nivel",function($join){
+				$join->on("calificaciones.nivel_idnivel","=","nivel.idnivel");
 			})->where("Alumno_idAlumno",Session::get("usuario"))
 		->orderBy('nivel_idnivel', 'asc')->get();
 		return View::make("calificacionesalumno")->with("calificaiones", $calificaciones);
 	}
 
 	public function VistaCoordinadorCalificacionesAlumno($id){
-		$calificaciones = DB::table("calificaciones")->select(array('periodo.nombre as nombrep',"materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
+		$calificaciones = DB::table("calificaciones")->select(array("nivel.nombre as nombren","periodo.nombre as nombrep","materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
 		->join("materia",function($join){
 				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
 			})->join("periodo",function($join){
 				$join->on("calificaciones.periodo_idperiodo","=","periodo.idperiodo");
+			})->join("nivel",function($join){
+				$join->on("calificaciones.nivel_idnivel","=","nivel.idnivel");
 			})->where("Alumno_idAlumno",$id)
 		->orderBy('nivel_idnivel', 'asc')->get();
-		return View::make("calificacionescoordinadoralumno")->with("calificaiones", $calificaciones);
+		$alumno = DB::table("Alumno")->where("idAlumno",$id)->first();
+		return View::make("calificacionescoordinadoralumno")->with("calificaiones", $calificaciones)->with("alumno",$alumno);
 	}
 
 	public function VistaColegiaturasAlumno(){
@@ -86,7 +91,7 @@ class VistaController extends BaseController {
 		$concole = $seccion->count();
 		$usuario = DB::table("alumno")->where("idAlumno",$id)->first();
 		$adeudo = ($g->restaFechas($usuario->fecha, $fechaactual))-$concole;
-		return View::make("colegiaturascoordinadoralumno")->with("adeudo",$adeudo)->with("colegiaturas",$colegiaturas);
+		return View::make("colegiaturascoordinadoralumno")->with("adeudo",$adeudo)->with("colegiaturas",$colegiaturas)->with("alumno",$usuario);
 	}
 
 	public function VistaBusquedaAlumno(){

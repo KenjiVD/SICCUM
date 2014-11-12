@@ -6,7 +6,7 @@
 </head>
 <body>
 	<header>
-		<img src="img/siccum.png">
+		<img src="{{url('/')}}/img/siccum.png">
 		<div id="conten-menu">
 			<ul id="menu">
 				<li><a href="">Inicio</a></li>
@@ -20,9 +20,6 @@
 		<div id="solicitudes">
 			<h3>Administrador de Perfiles</h3>
 			<table id="table" border="1">
-					<th>Nombre de perfil</th>
-					<th>Accion para Perfil</th>
-				</tr>
 				<tr>
 					<td class="negritas">Coordinadores Activos</td>
 					<td><img src="img/tacha.png">Dar de baja</td>
@@ -37,6 +34,8 @@
 						<?php
 					}
 					?>
+			</table>
+			<table id="table" border="1">
 				<tr>
 					<td class="negritas">Alumnos Activos</td>
 					<td><img src="img/tacha.png">Dar de baja</td>
@@ -51,6 +50,8 @@
 						<?php
 					}
 					?>
+			</table>
+			<table id="table" border="1">
 				<tr>
 					<td class="negritas">Coordinadores Inactivos</td>
 					<td><img src="img/palomita.png">Dar de alta</td>
@@ -65,6 +66,8 @@
 						<?php
 					}
 					?>
+			</table>
+			<table id="table" border="1">
 				<tr>
 					<td class="negritas">Alumnos Inactivos</td>
 					<td><img src="img/palomita.png">Dar de alta</td>

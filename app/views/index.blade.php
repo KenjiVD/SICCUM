@@ -5,7 +5,7 @@
 	{{HTML::style('styleIndex.css')}}
 </head>
 <body>
-	<header><p>Sistema de Altas</p> <img src="img/logo.jpg"></header>
+	<header><p>Sistema de Altas</p> <img src="{{url('/')}}/img/logo.jpg"></header>
 	<div id="contenido">
 		<div id="menu">
 			<li><a onclick="MostrarCoordinador()"><p>Alta Coordinador</p></a></li>

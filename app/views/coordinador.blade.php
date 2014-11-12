@@ -6,10 +6,10 @@
 </head>
 <body>
     <header>
-        <img src="img/siccum.png">
+        <img src="{{url('/')}}/img/siccum.png">
         <div id="conten-menu">
         <ul id="menu">
-            <li><a href="">Inicio</a></li>
+            <li><a href="{{url('/')}}/inicio">Inicio</a></li>
             <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
             <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
         </ul>
@@ -26,14 +26,6 @@
                     <th>Archivo Evidencia</th>
                     <th>Aprobado</th>
                     <th>Desaprobado</th>
-                </tr>
-                <tr>
-                    <td>Stephania Cal y Mayor Cardona</td>
-                    <td>08/10/2014</td>
-                    <td>Enfermedad de malariakdb fyadcfcdcfvgbuhnhbgvfcdrctvfgbhnjhbgvfcdxrdcfvgbhn kdb fvfdsubnimibugvysg</td>
-                    <td><img src="img/descargar.png" width"10px" height"20px"></td>
-                    <td><img src="{{url('/')}}/img/palomita.png"></td>
-                    <td><img src="{{url('/')}}/img/tacha.png"></td>
                 </tr>
                 <?php 
             foreach ($permisos as $key) { ?> 

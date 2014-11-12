@@ -5,7 +5,7 @@
 </head>
 <body>
 	<header>
-		<img src="img/siccum.png">
+		<img src="{{url('/')}}/img/siccum.png">
 		<div id="conten-menu">
 		<ul id="menu">
             <li><a href="">Permisos Solicitados</a></li>

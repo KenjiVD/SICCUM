@@ -1,16 +1,31 @@
 <html>
 <head>
-	<title></title>
+    <title>Coordinador</title>
+    <link rel="stylesheet" type="text/css" href="{{(url('/'))}}/styleLogin.css">
+    <meta charset="utf-8">
 </head>
 <body>
-	<div>
-		<form method="post" action="{{url('/')}}/buscaralumno">
-			<label>Buscar: </label><input type="text" name="texto" placeholder="Acepta matricula, nombre o apellido" required/><input type="submit" value="buscar" />
-		</form>
-	</div>
-	<div>
-		<?php if (isset($alumnos) && $alumnos != null) { ?>
-			<table>
+    <header>
+        <img src="{{url('/')}}/img/siccum.png">
+        <div id="conten-menu">
+        <ul id="menu">
+            <li><a href="{{url('/')}}/inicio">Inicio</a></li>
+            <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
+            <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
+        </ul>
+    </div>
+    </header>
+    <div id="name"><h3>Coordinador:  {{Session::get("nombre")}}</h3></div>
+    <div id="content-table">
+    	<div id ="formulario">
+			<h3>Busqueda</h3><br>
+				<form method="post" action="{{url('/')}}/buscaralumno">
+				<label>Buscar: </label><input type="text" name="texto" placeholder="Acepta matricula, nombre o apellido" required/><input type="submit" value="buscar" />
+			</form>
+		</div>
+        <div id="solicitudes">
+            <?php if (isset($alumnos) && $alumnos != null) { ?>
+			<table id="table" border="1">
 				<tr>
 					<td>Matricula</td>
 					<td>Nombre</td>
@@ -27,6 +42,8 @@
 				<?php } ?>
 			</table>
 		<?php } ?>
-	</div>
+        </div>
+    </div>
+    <footer></footer>
 </body>
 </html>
