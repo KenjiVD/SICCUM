@@ -57,7 +57,6 @@ table{
 	padding:34px;
 	line-height:40px;
 }
-
 #menu li a:hover{
 	color:#fff;
 }
@@ -74,12 +73,13 @@ table{
 	margin-top: 50px;
 	margin-left: 200px;
 }
-table th {background-color: #990000; }
+table th {background-color: #990000; width: 100px;}
 table tr:nth-child(odd) {background-color: #993333;}
 
 table tr:nth-child(even) {background-color: #fff;}
 table tr td{
 	border: 1px solid #A80000 ;
+	width: 100px;
 	vertical-align: bottom;
 }
 #caja{
@@ -167,4 +167,47 @@ table tr td{
 #formulario{
 	margin-top: 100px;
 	margin-left: 400px;
+}
+#menu .nav{
+	text-align: center;
+	position: relative;
+	z-index: 1;
+}
+#menu .nav > li {
+    float:left;
+}
+#menu .nav li{
+	width: 205px;
+	height: 60px;
+	background-color: #A80000;
+}
+#menu .nav li a {
+	padding: 0px;
+    background-color: #A80000;
+    display:block;
+}
+
+#menu .nav li a:hover {
+	color:#fff;
+}
+
+#menu .nav li ul {
+	margin-top: 15px;
+    display:none;
+    position:relative;
+}
+
+#menu .nav li:hover > ul {
+    display:block;
+}
+
+#menu .nav li ul li {
+    right: 40px;
+    width: 205px;
+    height: 60px;
+    background-color: #A80000;
+    position:relative;
+}
+
+#menu .nav li ul li ul {
 }

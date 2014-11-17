@@ -84,4 +84,33 @@ class UsuariosController extends BaseController {
 			return Redirect::to("/buscaralumno");
 		}
 	}
+
+	public function NumPermisos(){
+		$permisos = DB::table("permiso")->join("alumno",function($join){
+				$join->on("permiso.Alumno_idAlumno","=","alumno.idAlumno");
+			})->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estado", 0)->count();
+		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil", 1)->get();
+		$cont = 0;
+		foreach ($alumnos as $key) {
+			$calificaciones = DB::table("calificaciones")->where("Alumno_idAlumno",$key->idAlumno)->get();
+			$numcalificaciones = DB::table("calificaciones")->where("Alumno_idAlumno",$key->idAlumno)->count();
+			$suma = 0;
+			foreach ($calificaciones as $key2) {
+				$suma = $suma + $key2->calificacion;
+			}
+			$promedio = $suma/$numcalificaciones;
+			if ($promedio<70) {
+				$cont++;
+			}
+		}
+		$Notificaciones = $cont+$permisos;
+		return "<ul class='nav'>
+                    <li><a href=''>Notificaciones(".$Notificaciones.")</a>
+                        <ul>
+                            <li><a href=''>Permisos(".$permisos.")</a></li><br>
+                            <li><a href=''>Alumnos Criticos(".$cont.")</a></li>
+                        </ul>
+                    </li>
+                </ul>";
+	}
 }

@@ -34,7 +34,26 @@ class VistaController extends BaseController {
 				$permisos = DB::table("permiso")->join("alumno",function($join){
 					$join->on("permiso.Alumno_idAlumno","=","alumno.idAlumno");
 				})->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estado", 0)->get();
-				return View::make("coordinador")->with("permisos", $permisos);
+				$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil", 1)->get();
+				$criticos = array();
+				$promedios = array();
+				foreach ($alumnos as $key) {
+					$calificaciones = DB::table("calificaciones")->where("Alumno_idAlumno",$key->idAlumno)->get();
+					$numcalificaciones = DB::table("calificaciones")->where("Alumno_idAlumno",$key->idAlumno)->count();
+					$suma = 0;
+					foreach ($calificaciones as $key2) {
+						$suma = $suma + $key2->calificacion;
+					}
+					$promedio = $suma/$numcalificaciones;
+					if ($promedio<70) {
+						array_push($criticos, $key);
+						$promedios[$key->nombre] = $promedio;
+					}
+				}
+				return View::make("coordinador")
+				->with("permisos", $permisos)
+				->with("criticos", $criticos)
+				->with("promedios", $promedios);
 				break;
 			case 4:
 				$permisos = DB::table("permiso")->where("Alumno_idAlumno", Session::get("usuario"))->get();

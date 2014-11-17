@@ -131,7 +131,7 @@
 	</div>
 	<footer>
 		<p>Cento Universitario Mesoamericano Joaquin Miguel Gutierrez</p>
-		{{ HTML::script('scriptIndex.js')}}</script>
+		{{ HTML::script('scriptIndex.js')}}
 	</footer>
 </body>
 </html>

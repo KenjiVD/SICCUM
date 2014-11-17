@@ -61,6 +61,9 @@ Route::group(array('before' => 'auth'), function(){
 		Route::post("/buscaralumno","UsuariosController@BusquedaAlumno");
 	});
 	Route::get('/inicio', "VistaController@VistaInicio");
+	Route::get('/solicitar/NPermisos',"UsuariosController@NumPermisos");
+	Route::get('/calificaciones/solicitar/NPermisos',"UsuariosController@NumPermisos");
+	Route::get('/colegiaturas/solicitar/NPermisos',"UsuariosController@NumPermisos");
 });
 Route::group(array('before' => 'noauth'), function(){
 	//a estas rutas solo puedo entrar si no estoy loggeado

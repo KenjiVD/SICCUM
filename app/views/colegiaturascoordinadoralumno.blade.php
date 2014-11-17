@@ -11,6 +11,7 @@
         <ul id="menu">
             <li><a href="{{url('/')}}/inicio">Inicio</a></li>
             <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
+            <li id="numpermisos"><a id='num'>Notificaciones(0)</a></li>
             <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
         </ul>
     </div>
@@ -32,6 +33,9 @@
             </table>
         </div>
     </div>
-    <footer></footer>
+    <footer>
+        <script type="text/javascript" src="{{url('/')}}/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="{{url('/')}}/indexAjax.js"></script>
+    </footer>
 </body>
 </html>
