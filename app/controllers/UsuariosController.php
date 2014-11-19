@@ -11,19 +11,19 @@ class UsuariosController extends BaseController {
 		if ($validado) {
 			switch ($_POST["tipo"]) {
 				case 4:
-					$usuariosesion = DB::table("alumno")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
+					$usuariosesion = DB::table("alumno")->where("matriculaa",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idAlumno);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 				case 3:
-					$usuariosesion = DB::table("coordinador")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
+					$usuariosesion = DB::table("coordinador")->where("matriculac",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->where("estadoperfil", 1)->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idCoordinador);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 				case 2:
-					$usuariosesion = DB::table("administrador")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
+					$usuariosesion = DB::table("administrador")->where("idadministrador",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idadministrador);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 				case 1:
-					$usuariosesion = DB::table("administradorsiccum")->where("nombre",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
+					$usuariosesion = DB::table("administradorsiccum")->where("idadministradorsiccum",$_POST["usuario"])->where("contrasena", $_POST["contrasena"])->first();
 					if(isset($usuariosesion) && $usuariosesion !=null){Session::put("tipo",$_POST["tipo"]);Session::put("usuario", $usuariosesion->idadministradorsiccum);Session::put("nombre", $usuariosesion->nombre);}
 					break;
 			}
