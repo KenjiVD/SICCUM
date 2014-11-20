@@ -11,7 +11,16 @@
         <ul id="menu">
             <li><a href="{{url('/')}}/inicio">Inicio</a></li>
             <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
-            <li id="numpermisos"><a id='num'>Notificaciones(0)</a></li>
+            <!--<li id="numpermisos">
+                <ul class="nav">
+                    <li><a href=''>Notificaciones(0)</a>
+                        <ul>
+                            <li><a href=''>Permisos(0)</a></li><br>
+                            <li><a href=''>Alumnos Criticos(0)</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>-->
             <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
         </ul>
     </div>

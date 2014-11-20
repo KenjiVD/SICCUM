@@ -117,4 +117,9 @@ class VistaController extends BaseController {
 		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->orderBy('idAlumno', 'asc')->get();
 		return View::make("busqueda")->with("alumnos",$alumnos);
 	}
+	public function VistaAsignarAlumnoCoordinador(){
+		$alumnos = DB::table("alumno")->where("estadoperfil", 1)->where("Coordinador_idCoordinador", null)->orderBy('idAlumno', 'asc')->get();
+		$coordinadores = DB::table("coordinador")->where("estadoperfil", 1)->orderBy('idCoordinador', 'asc')->get();
+		return View::make("AdministradorAsignarAlumnosCoordinador")->with("alumnos", $alumnos)->with("coordinadores", $coordinadores);
+	}
 }

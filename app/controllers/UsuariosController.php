@@ -113,4 +113,16 @@ class UsuariosController extends BaseController {
                     </li>
                 </ul>";
 	}
+
+	public function AsignarAlumnoCoordinador(){
+		$g = new HomeController();
+		$datos = array();
+		array_push($datos, $_POST["id"]);
+		array_push($datos, $_POST["coordinador"]);
+		$validado = $g->ValidarNoVacio($datos);
+		if ($validado) {
+			DB::table("alumno")->where("idAlumno",$_POST["id"])->update(array("Coordinador_idCoordinador" => $_POST["coordinador"]));
+		}
+		return Redirect::to("/AsignarCoordinador");
+	}
 }

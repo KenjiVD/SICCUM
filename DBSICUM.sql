@@ -86,7 +86,7 @@ CREATE TABLE `alumno` (
   `matriculaa` int(10) unsigned DEFAULT NULL,
   `idperiodo` int(10) NOT NULL,
   `curp` varchar(45) NOT NULL,
-  `contrasena` varchar(45) NOT NULL,
+  `contrasena` varchar(45) DEFAULT NULL,
   `estadoperfil` int(11) NOT NULL DEFAULT '1' COMMENT '1 = activo\n0 = inactivo',
   `fecha` date NOT NULL,
   PRIMARY KEY (`idAlumno`),
@@ -95,7 +95,7 @@ CREATE TABLE `alumno` (
   KEY `Alumno_FKIndex4` (`grupo_idgrupo`),
   KEY `Alumno_FKIndex5` (`cuentas_idcuentas`,`cuentas_usuario`),
   KEY `Alumno_FKIndex1` (`Coordinador_idCoordinador`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,7 +104,7 @@ CREATE TABLE `alumno` (
 
 LOCK TABLES `alumno` WRITE;
 /*!40000 ALTER TABLE `alumno` DISABLE KEYS */;
-INSERT INTO `alumno` VALUES (1,NULL,NULL,10,1,10,5,'Emanuel',131101,13,'ROPE921204','131101',1,'2014-08-01');
+INSERT INTO `alumno` VALUES (1,NULL,NULL,10,1,10,5,'Emanuel',131101,13,'ROPE921204','131101',1,'2014-08-01'),(2,NULL,NULL,1,2,1,NULL,'Lucas',1212,1,'szxdcfgvhjkpl','1212',1,'2014-11-19');
 /*!40000 ALTER TABLE `alumno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,7 +373,7 @@ CREATE TABLE `permiso` (
   PRIMARY KEY (`idpermiso`),
   UNIQUE KEY `idpermiso_UNIQUE` (`idpermiso`),
   KEY `permiso_FKIndex1` (`Alumno_idAlumno`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -382,7 +382,7 @@ CREATE TABLE `permiso` (
 
 LOCK TABLES `permiso` WRITE;
 /*!40000 ALTER TABLE `permiso` DISABLE KEYS */;
-INSERT INTO `permiso` VALUES (1,1,131101,'','permisos/1.png','2014-10-22','2014-10-22','2014-10-29',2),(2,1,131101,'','permisos/2.pdf','2014-10-23','2014-10-23','2014-10-25',1),(3,1,131101,'Tengo fiebre','permisos/3.jpg','2014-11-06','2014-11-10','2014-11-14',1),(4,1,131101,'','permisos/4.jpg','2014-11-06','2014-11-07','2014-11-14',2);
+INSERT INTO `permiso` VALUES (1,1,131101,'','permisos/1.png','2014-10-22','2014-10-22','2014-10-29',2),(2,1,131101,'','permisos/2.pdf','2014-10-23','2014-10-23','2014-10-25',1),(3,1,131101,'Tengo fiebre','permisos/3.jpg','2014-11-06','2014-11-10','2014-11-14',1),(4,1,131101,'','permisos/4.jpg','2014-11-06','2014-11-07','2014-11-14',2),(5,1,131101,'','permisos/5.jpg','2014-11-14','2014-11-14','2014-11-25',0);
 /*!40000 ALTER TABLE `permiso` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -395,4 +395,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-09 12:15:32
+-- Dump completed on 2014-11-19 10:01:55

@@ -49,7 +49,8 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get("/colegiaturas","VistaController@VistaColegiaturasAlumno");
 	});
 	Route::group(array('before' => 'admin'), function(){
-
+		Route::post('/Asignar', 'UsuariosController@AsignarAlumnoCoordinador');
+		Route::get('/AsignarCoordinador','VistaController@VistaAsignarAlumnoCoordinador');
 		Route::get('/Baja/{tipo}/{id}', "UsuariosController@Baja");
 		Route::get('/Alta/{tipo}/{id}', "UsuariosController@Alta");
 	});
