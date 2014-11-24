@@ -25,10 +25,20 @@
         </ul>
     </div>
     </header>
-    <div id="name"><h3>Coordinador:  {{Session::get("nombre")}}</h3></div>
+    <div id="name">
+        <h3>Coordinador:  {{Session::get("nombre")}}</h3><br>
+        <h3>Calificaciones de: {{$alumno->nombre}}</h3>
+    </div>
+    <div>
+        <label>Filtro por nivel</label>
+        <select id="nivel"><?php foreach ($niveles as $key) { ?>
+            <option value="{{$key->idnivel}}">{{$key->nombre}}</option>
+        <?php }?></select>
+        <input type="hidden" id="idalumno" value="{{$alumno->idAlumno}}" />
+        <input type="button" id="EnvioC" value="Aplicar"/>
+    </div>
     <div id="content-table">
         <div id="solicitudes">
-            <h3>Calificaciones de: {{$alumno->nombre}}</h3>
             <table id="table" border="1">
                     <tr>
                     	<td>Nivel</td>

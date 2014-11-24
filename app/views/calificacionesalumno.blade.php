@@ -16,6 +16,13 @@
 	</div>
 	</header>
 	<div id="name"><h3>Alumno:   {{Session::get("nombre")}}</h3></div>
+	<div>
+		<label>Filtro por nivel</label>
+        <select id="nivel"><?php foreach ($niveles as $key) { ?>
+            <option value="{{$key->idnivel}}">{{$key->nombre}}</option>
+        <?php }?></select>
+        <input type="button" id="Envio" value="Aplicar"/>
+    </div>
 	<div id="content-table">
 		<div id="permisos">
 			<h2>Calificaciones</h2>
@@ -37,6 +44,9 @@
 			</table>
 		</div>
 	</div>
-	<footer></footer>
+	<footer>
+		<script type="text/javascript" src="{{url('/')}}/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="{{url('/')}}/indexAjax.js"></script>
+	</footer>
 </body>
 </html>

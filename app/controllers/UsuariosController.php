@@ -125,4 +125,34 @@ class UsuariosController extends BaseController {
 		}
 		return Redirect::to("/AsignarCoordinador");
 	}
+
+	public function CalificacionAlumnoNivel(){
+		$calificaciones = DB::table("calificaciones")->select(array("nivel.nombre as nombren","periodo.nombre as nombrep","materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
+		->join("materia",function($join){
+				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
+			})->join("periodo",function($join){
+				$join->on("calificaciones.periodo_idperiodo","=","periodo.idperiodo");
+			})->join("nivel",function($join){
+				$join->on("calificaciones.nivel_idnivel","=","nivel.idnivel");
+			})->where("Alumno_idAlumno",Session::get("usuario"))->where("nivel_idnivel",$_POST["nivel"])
+		->orderBy('nivel_idnivel', 'asc')->get();
+		$niveles = DB::table("nivel")->get();
+		return View::make("calificaciones")
+		->with("calificaiones", $calificaciones);
+	}
+
+	public function CalificacionCoordinadorAlumnoNivel(){
+		$calificaciones = DB::table("calificaciones")->select(array("nivel.nombre as nombren","periodo.nombre as nombrep","materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
+		->join("materia",function($join){
+				$join->on("calificaciones.materia_idmateria","=","materia.idmateria");
+			})->join("periodo",function($join){
+				$join->on("calificaciones.periodo_idperiodo","=","periodo.idperiodo");
+			})->join("nivel",function($join){
+				$join->on("calificaciones.nivel_idnivel","=","nivel.idnivel");
+			})->where("Alumno_idAlumno",$_POST["idAlumno"])->where("nivel_idnivel",$_POST["nivel"])
+		->orderBy('nivel_idnivel', 'asc')->get();
+		$niveles = DB::table("nivel")->get();
+		return View::make("calificaciones")
+		->with("calificaiones", $calificaciones);
+	}
 }

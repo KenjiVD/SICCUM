@@ -10,5 +10,31 @@ $(document).ready(function(){
 	            console.log( "error: " + jqXHR.responseText);
 	        }
 	 	});
-	 }, 500);	 
+	 }, 500);	
+	$("#Envio").click(function() {
+		$.ajax({
+			data : {"nivel" : $("#nivel").val()},
+			url: "seleccionar/nivel",
+	 		type: 'POST',
+          	success: function(response) {
+            	$('#content-table').html(response);
+          	},
+          	error: function(jqXHR, textStatus, error) {
+	            console.log( "error: " + jqXHR.responseText);
+	        }
+		});
+	}); 
+	$("#EnvioC").click(function() {
+		$.ajax({
+			data : {"nivel" : $("#nivel").val(),"idAlumno" : $("#idalumno").val()},
+			url: "seleccionar/nivel",
+	 		type: 'POST',
+          	success: function(response) {
+            	$('#content-table').html(response);
+          	},
+          	error: function(jqXHR, textStatus, error) {
+	            console.log( "error: " + jqXHR.responseText);
+	        }
+		});
+	}); 
 })

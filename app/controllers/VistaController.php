@@ -72,7 +72,9 @@ class VistaController extends BaseController {
 				$join->on("calificaciones.nivel_idnivel","=","nivel.idnivel");
 			})->where("Alumno_idAlumno",Session::get("usuario"))
 		->orderBy('nivel_idnivel', 'asc')->get();
-		return View::make("calificacionesalumno")->with("calificaiones", $calificaciones);
+		$niveles = DB::table("nivel")->get();
+		return View::make("calificacionesalumno")
+		->with("calificaiones", $calificaciones)->with("niveles",$niveles);
 	}
 
 	public function VistaCoordinadorCalificacionesAlumno($id){
@@ -86,7 +88,9 @@ class VistaController extends BaseController {
 			})->where("Alumno_idAlumno",$id)
 		->orderBy('nivel_idnivel', 'asc')->get();
 		$alumno = DB::table("Alumno")->where("idAlumno",$id)->first();
-		return View::make("calificacionescoordinadoralumno")->with("calificaiones", $calificaciones)->with("alumno",$alumno);
+		$niveles = DB::table("nivel")->get();
+		return View::make("calificacionescoordinadoralumno")
+		->with("calificaiones", $calificaciones)->with("alumno",$alumno)->with("niveles",$niveles);
 	}
 
 	public function VistaColegiaturasAlumno(){

@@ -47,6 +47,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::group(array('before' => 'alumno'), function(){
 		Route::get("/calificaciones","VistaController@VistaCalificacionesAlumno");
 		Route::get("/colegiaturas","VistaController@VistaColegiaturasAlumno");
+		Route::post("/seleccionar/nivel","UsuariosController@CalificacionAlumnoNivel");
 	});
 	Route::group(array('before' => 'admin'), function(){
 		Route::post('/Asignar', 'UsuariosController@AsignarAlumnoCoordinador');
@@ -60,11 +61,12 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get("/colegiaturas/{id}","VistaController@VistaCoordinadorColegiaturasAlumno");
 		Route::get("/buscaralumno","VistaController@VistaBusquedaAlumno");
 		Route::post("/buscaralumno","UsuariosController@BusquedaAlumno");
+		Route::get('/solicitar/NPermisos',"UsuariosController@NumPermisos");
+		Route::get('/calificaciones/solicitar/NPermisos',"UsuariosController@NumPermisos");
+		Route::get('/colegiaturas/solicitar/NPermisos',"UsuariosController@NumPermisos");
+		Route::post("/calificaciones/seleccionar/nivel","UsuariosController@CalificacionCoordinadorAlumnoNivel");
 	});
 	Route::get('/inicio', "VistaController@VistaInicio");
-	Route::get('/solicitar/NPermisos',"UsuariosController@NumPermisos");
-	Route::get('/calificaciones/solicitar/NPermisos',"UsuariosController@NumPermisos");
-	Route::get('/colegiaturas/solicitar/NPermisos',"UsuariosController@NumPermisos");
 });
 Route::group(array('before' => 'noauth'), function(){
 	//a estas rutas solo puedo entrar si no estoy loggeado
