@@ -42,18 +42,26 @@ Route::filter('noauth', function(){
 Route::group(array('before' => 'auth'), function(){
 	//a estas rutas solo puedo entrar si estoy loggeado
 	Route::group(array('before' => 'adminSICCUM'), function(){
-
+		Route::post("NuevoPerfil","UsuariosController@Nuevo");
+		Route::post("NuevaMateria","MateriaController@Nuevo");
+		Route::post("NuevoAlumno","AlumnoController@Nuevo");
+		Route::post("NuevaCalificacion","CalificacionController@Nuevo");
+		Route::post("NuevaColegiatura","ColegiaturaController@Nuevo");
 	});
 	Route::group(array('before' => 'alumno'), function(){
 		Route::get("/calificaciones","VistaController@VistaCalificacionesAlumno");
 		Route::get("/colegiaturas","VistaController@VistaColegiaturasAlumno");
 		Route::post("/seleccionar/nivel","UsuariosController@CalificacionAlumnoNivel");
+		Route::post("NuevoPermiso","AlumnoController@NuevoPermiso");
 	});
 	Route::group(array('before' => 'admin'), function(){
 		Route::post('/Asignar', 'UsuariosController@AsignarAlumnoCoordinador');
 		Route::get('/AsignarCoordinador','VistaController@VistaAsignarAlumnoCoordinador');
 		Route::get('/Baja/{tipo}/{id}', "UsuariosController@Baja");
 		Route::get('/Alta/{tipo}/{id}', "UsuariosController@Alta");
+		Route::get('/Graduado/{id}', "UsuariosController@Graduado");
+		Route::get('/CambioContrasena/{tipo}/{id}', "VistaController@VistaCambioContrasena");
+		Route::post('/CambioContrasena', 'UsuariosController@CambioContrasena');
 	});
 	Route::group(array('before' => 'coordinador'), function(){
 		Route::get('/coordinador/permiso/{accion}/{id}',"AlumnoController@AccionPermiso");
@@ -83,10 +91,4 @@ Route::get("/logout",function(){
 		return Redirect::to('/');	
 });
 
-Route::post("NuevoPermiso","AlumnoController@NuevoPermiso");
 Route::post("/iniciarsesion","UsuariosController@IniciarSesion");
-Route::post("NuevoPerfil","UsuariosController@Nuevo");
-Route::post("NuevaMateria","MateriaController@Nuevo");
-Route::post("NuevoAlumno","AlumnoController@Nuevo");
-Route::post("NuevaCalificacion","CalificacionController@Nuevo");
-Route::post("NuevaColegiatura","ColegiaturaController@Nuevo");

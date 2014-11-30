@@ -66,6 +66,11 @@ class UsuariosController extends BaseController {
 		}
 	}
 
+	public function Graduado($id){
+		DB::table("alumno")->where("idAlumno",$id)->update(array("estadoperfil" => 2));
+		return Redirect::to("/inicio"); 
+	}
+
 	public function BusquedaAlumno(){
 		$g = new HomeController();
 		$validado = $g->ValidarNoVacioUno($_POST["texto"]);
@@ -78,7 +83,7 @@ class UsuariosController extends BaseController {
 					$query->orwhere("matriculaa","like","%".$cadena[$i]."%")
 					->orwhere("nombre","like","%".$cadena[$i]."%");
 				}
-			})->orderBy('idAlumno', 'asc')->get();
+			})->groupBy('estadoperfil')->orderBy('idAlumno', 'asc')->get();
 			return View::make("busqueda")->with("alumnos",$alumnos);
 		}else{
 			return Redirect::to("/buscaralumno");
@@ -154,5 +159,19 @@ class UsuariosController extends BaseController {
 		$niveles = DB::table("nivel")->get();
 		return View::make("calificaciones")
 		->with("calificaiones", $calificaciones);
+	}
+
+	public function CambioContrasena(){
+		$g = new HomeController();
+		$datos = array();
+		array_push($datos, $_POST["id"]);
+		array_push($datos, $_POST["tipo"]);
+		array_push($datos, $_POST["newpass"]);
+		$validado = $g->ValidarNoVacio($datos);
+		if ($validado) {
+			if ($_POST["tipo"]==3) {DB::table("coordinador")->where("idCoordinador",$_POST["id"])->update(array("contrasena" => $_POST["newpass"]));}
+			else {DB::table("alumno")->where("idAlumno",$_POST["id"])->update(array("contrasena" => $_POST["newpass"]));}
+		}
+		return Redirect::to("/inicio");
 	}
 }

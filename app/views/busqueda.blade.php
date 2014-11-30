@@ -1,5 +1,6 @@
 <html>
 <head>
+    <?php $g = new HomeController(); ?>
     <title>Coordinador</title>
     <link rel="stylesheet" type="text/css" href="{{(url('/'))}}/styleLogin.css">
     <meta charset="utf-8">
@@ -39,6 +40,7 @@
 				<tr>
 					<td>Matricula</td>
 					<td>Nombre</td>
+                    <td>Estado</td>
 					<td>Calificaciones</td>
 					<td>Adeudos</td>
 				</tr>
@@ -46,6 +48,7 @@
 					<tr>
 						<td>{{$key->matriculaa}}</td>
 						<td>{{$key->nombre}}</td>
+                        <td>{{$g->EstadoAlumno($key->estadoperfil)}}</td>
 						<td><a href="{{url('/')}}/calificaciones/{{$key->idAlumno}}">Ver</a></td>
 						<td><a href="{{url('/')}}/colegiaturas/{{$key->idAlumno}}">Ver</a></td>
 					</tr>

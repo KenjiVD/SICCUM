@@ -118,12 +118,25 @@ class VistaController extends BaseController {
 	}
 
 	public function VistaBusquedaAlumno(){
-		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->orderBy('idAlumno', 'asc')->get();
+		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->groupBy('estadoperfil')->orderBy('idAlumno', 'asc')->get();
 		return View::make("busqueda")->with("alumnos",$alumnos);
 	}
+
 	public function VistaAsignarAlumnoCoordinador(){
 		$alumnos = DB::table("alumno")->where("estadoperfil", 1)->where("Coordinador_idCoordinador", null)->orderBy('idAlumno', 'asc')->get();
 		$coordinadores = DB::table("coordinador")->where("estadoperfil", 1)->orderBy('idCoordinador', 'asc')->get();
 		return View::make("AdministradorAsignarAlumnosCoordinador")->with("alumnos", $alumnos)->with("coordinadores", $coordinadores);
+	}
+
+	public function VistaCambioContrasena($tipo,$id){
+		if ($tipo==3) {
+			$usuario = DB::table("coordinador")->where("idCoordinador",$id)->first();
+			$nombre = "Coordinador ".$usuario->nombre." con matricula: ".$usuario->matriculac;
+		}
+		else{
+			$usuario = DB::table("alumno")->where("idAlumno",$id)->first();
+			$nombre = "Alumno ".$usuario->nombre." con matricula: ".$usuario->matriculaa;
+		}
+		return View::make("cambiocontrasena")->with("tipo",$tipo)->with("id",$id)->with("nombre",$nombre);
 	}
 }

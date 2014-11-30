@@ -52,6 +52,16 @@ class HomeController extends BaseController {
 		}
 	}
 
+	public function EstadoAlumno($value){
+		if ($value == 0) {
+			return "Inactivo";
+		}elseif ($value == 1) {
+			return "Activo";
+		}else{
+			return "Graduado";
+		}
+	}
+
 	public function FechaNormal($value){
 		$cadena = explode("-", $value);
 		$value = $cadena[2]."/".$cadena[1]."/".$cadena[0];
