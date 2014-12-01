@@ -9,8 +9,8 @@
 		<img src="{{url('/')}}/img/siccum.png">
 		<div id="conten-menu">
 			<ul id="menu">
-				<li><a href="">Inicio</a></li>
-	            <li><a href="">Administracion de Perfiles</a></li>
+				<li><a href="{{url('/')}}/inicio">Inicio</a></li>
+	            <li><a href="{{url('/')}}/AsignarCoordinador">Administracion de Perfiles</a></li>
 	            <li><a href="{{url('/')}}/logout">Cerrar sesion</a></li>
 	        </ul>
 		</div>

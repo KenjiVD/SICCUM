@@ -10,7 +10,7 @@ $(document).ready(function(){
 	            console.log( "error: " + jqXHR.responseText);
 	        }
 	 	});
-	 }, 500);	
+	 }, 1000);	
 	$("#Envio").click(function() {
 		$.ajax({
 			data : {"nivel" : $("#nivel").val()},

@@ -20,7 +20,7 @@
 		<form action="{{url('NuevoPerfil')}}" method="POST">
 			<label>Dar de alta a Coordinador</label><br><br>
 			<input name="usuario" placeholder="usuario" type="text" required/><br>
-			<input name="contrasena" placeholder="contraseña" type="text" required/><br>
+			<input name="contrasena" placeholder="Matricula" type="text" required/><br>
 			<div class="enviar"><input type="submit" value="Nuevo"/></div>
 		</form>
 	</div>

@@ -45,7 +45,18 @@
 					<td>Calificaciones</td>
 					<td>Adeudos</td>
 				</tr>
-				<?php foreach ($alumnos as $key) { ?>
+                <?php if (isset($alumnosgraduados) && $alumnosgraduados != null) {
+                foreach ($alumnosgraduados as $key) { ?>
+                    <tr>
+                        <td>{{$key->matriculaa}}</td>
+                        <td>{{$key->nombre}}</td>
+                        <td>{{$g->EstadoAlumno($key->estadoperfil)}}</td>
+                        <td><a href="{{url('/')}}/calificaciones/{{$key->idAlumno}}">Ver</a></td>
+                        <td><a href="{{url('/')}}/colegiaturas/{{$key->idAlumno}}">Ver</a></td>
+                    </tr>
+                <?php } 
+                }
+                foreach ($alumnos as $key) { ?>
 					<tr>
 						<td>{{$key->matriculaa}}</td>
 						<td>{{$key->nombre}}</td>

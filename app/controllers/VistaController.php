@@ -44,7 +44,8 @@ class VistaController extends BaseController {
 					foreach ($calificaciones as $key2) {
 						$suma = $suma + $key2->calificacion;
 					}
-					$promedio = $suma/$numcalificaciones;
+					if ($numcalificaciones > 0) {$promedio = $suma/$numcalificaciones;}
+					else {$promedio = 70;}
 					if ($promedio<70) {
 						array_push($criticos, $key);
 						$promedios[$key->nombre] = $promedio;
@@ -118,8 +119,9 @@ class VistaController extends BaseController {
 	}
 
 	public function VistaBusquedaAlumno(){
-		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->groupBy('estadoperfil')->orderBy('idAlumno', 'asc')->get();
-		return View::make("busqueda")->with("alumnos",$alumnos);
+		$alumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil","<",2)->orderBy('idAlumno', 'asc')->get();
+		$alumnosgraduados = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil",2)->orderBy('idAlumno', 'asc')->get();
+		return View::make("busqueda")->with("alumnos",$alumnos)->with("alumnosgraduados",$alumnosgraduados);
 	}
 
 	public function VistaAsignarAlumnoCoordinador(){

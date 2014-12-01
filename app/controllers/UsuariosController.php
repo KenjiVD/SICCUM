@@ -83,7 +83,7 @@ class UsuariosController extends BaseController {
 					$query->orwhere("matriculaa","like","%".$cadena[$i]."%")
 					->orwhere("nombre","like","%".$cadena[$i]."%");
 				}
-			})->groupBy('estadoperfil')->orderBy('idAlumno', 'asc')->get();
+			})->orderBy('idAlumno', 'asc')->get();
 			return View::make("busqueda")->with("alumnos",$alumnos);
 		}else{
 			return Redirect::to("/buscaralumno");
