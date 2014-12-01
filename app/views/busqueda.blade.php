@@ -12,6 +12,7 @@
         <ul id="menu">
             <li><a href="{{url('/')}}/inicio">Inicio</a></li>
             <li><a href="{{url('/')}}/buscaralumno">Buscar alumno</a></li>
+            <li><a target="_blank" href="{{url('/')}}/reporte">Reporte</a></li>
             <li id="numpermisos">
                 <ul class="nav">
                     <li><a href=''>Notificaciones(0)</a>

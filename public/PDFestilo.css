@@ -1,0 +1,38 @@
+body{
+    font-family: Calibri, Helvetica, sans-serif;
+    font-weight: bold;
+}
+table{
+	width: 724px;
+	font-size: 10px;
+	text-align: center;
+	border-color: black;
+	border: solid;
+	position: relative;
+}
+td{
+	border-color: black;
+	border: solid;
+}
+tr{
+	border-color: black;
+	border: solid;
+}
+.subtitulo{
+	color: red;
+	font-size: 9;
+}
+#logoseguridad{
+	position: fixed;
+	width: 120px;
+	height: 130px;
+	left: 0px;
+}
+#titulo{
+	position: fixed;
+	top: 80px;
+	margin-left: 100px;
+	margin-right: 100px;
+	text-align:center;
+	font-size: 14;
+}

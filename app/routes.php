@@ -72,6 +72,7 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get('/solicitar/NPermisos',"UsuariosController@NumPermisos");
 		Route::get('/calificaciones/solicitar/NPermisos',"UsuariosController@NumPermisos");
 		Route::get('/colegiaturas/solicitar/NPermisos',"UsuariosController@NumPermisos");
+		Route::get('/reporte','PDFController@GenerarPDF');
 		Route::post("/calificaciones/seleccionar/nivel","UsuariosController@CalificacionCoordinadorAlumnoNivel");
 	});
 	Route::get('/inicio', "VistaController@VistaInicio");
