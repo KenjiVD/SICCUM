@@ -103,7 +103,8 @@ class UsuariosController extends BaseController {
 			foreach ($calificaciones as $key2) {
 				$suma = $suma + $key2->calificacion;
 			}
-			$promedio = $suma/$numcalificaciones;
+			if ($numcalificaciones > 0) {$promedio = $suma/$numcalificaciones;}
+			else {$promedio = 70;}
 			if ($promedio<70) {
 				$cont++;
 			}
