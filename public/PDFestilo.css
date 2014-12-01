@@ -4,7 +4,7 @@ body{
 }
 table{
 	width: 724px;
-	font-size: 10px;
+	font-size: 12px;
 	text-align: center;
 	border-color: black;
 	border: solid;
@@ -21,6 +21,9 @@ tr{
 .subtitulo{
 	color: red;
 	font-size: 9;
+}
+#contenido{
+	margin-top: 220px;
 }
 #logoseguridad{
 	position: fixed;
