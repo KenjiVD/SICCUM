@@ -62,6 +62,7 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get("/colegiaturas","VistaController@VistaColegiaturasAlumno");
 		Route::post("/seleccionar/nivel","UsuariosController@CalificacionAlumnoNivel");
 		Route::post("NuevoPermiso","AlumnoController@NuevoPermiso");
+		Route::get('/solicitar/NAdeudos',"UsuariosController@NumAdeudos");
 	});
 	Route::group(array('before' => 'admin'), function(){
 		Route::post('/Asignar', 'UsuariosController@AsignarAlumnoCoordinador');

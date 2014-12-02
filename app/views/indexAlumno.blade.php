@@ -10,7 +10,7 @@
 		<ul id="menu">
             <li><a href="">Permisos Solicitados</a></li>
             <li><a href="{{(url('/'))}}/calificaciones">Consultar Calificaciones</a></li>
-            <li><a href="{{(url('/'))}}/colegiaturas">Consultar Adeudos</a></li>
+            <li><a href="{{(url('/'))}}/colegiaturas">Consultar Colegiaturar - Adeudos: <span id="adeudos">0</span></a></li>
             <li><a href="{{(url('/'))}}/logout">Cerrar Sesion</a></li>
         </ul>
 	</div>
@@ -47,6 +47,9 @@
 			</form>
 		</div>
 	</div>
-	<footer></footer>
+	<footer>
+		<script type="text/javascript" src="{{url('/')}}/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="{{url('/')}}/indexAjax.js"></script>
+	</footer>
 </body>
 </html>

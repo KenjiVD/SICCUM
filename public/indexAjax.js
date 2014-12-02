@@ -10,6 +10,16 @@ $(document).ready(function(){
 	            console.log( "error: " + jqXHR.responseText);
 	        }
 	 	});
+	 	$.ajax({
+	 		url: "solicitar/NAdeudos",
+	 		type: 'GET',
+          	success: function(data) {
+            	$('#adeudos').html(data);
+          	},
+          	error: function(jqXHR, textStatus, error) {
+	            console.log( "error: " + jqXHR.responseText);
+	        }
+	 	});
 	 }, 1000);	
 	$("#Envio").click(function() {
 		$.ajax({

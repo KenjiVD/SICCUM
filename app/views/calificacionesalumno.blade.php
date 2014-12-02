@@ -10,7 +10,7 @@
 		<ul id="menu">
             <li><a href="{{url('/')}}/inicio">Permisos Solicitados</a></li>
             <li><a href="{{(url('/'))}}/calificaciones">Consultar Calificaciones</a></li>
-            <li><a href="{{(url('/'))}}/colegiaturas">Consultar Adeudos</a></li>
+            <li><a href="{{(url('/'))}}/colegiaturas">Consultar Colegiaturar - Adeudos: <span id="adeudos">0</span></a></li>
             <li><a href="{{(url('/'))}}/logout">Cerrar Sesion</a></li>
         </ul>
 	</div>

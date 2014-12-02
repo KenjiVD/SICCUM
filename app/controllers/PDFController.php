@@ -24,7 +24,7 @@ class PDFController extends BaseController {
 				foreach ($periodos as $periodo) {
 					$ContCaliReproPer = DB::table("calificaciones")->where("Alumno_idAlumno",$alumno->idAlumno)->where("calificacion","<",70)->where("periodo_idperiodo",$periodo->idperiodo)->count();
 					if ($ContCaliReproPer > 0) {
-						$html.= '<tr><td>'.$alumno->NombreAlumno.'</td><td>'.$alumno->NombreCarrera.'</td><td>'.$periodo->nombre.'</td><td>'.$ContCaliReproPer.'</td>';
+						$html.= '<tr><td>'.$g->Especiales($alumno->NombreAlumno).'</td><td>'.$g->Especiales($alumno->NombreCarrera).'</td><td>'.$g->Especiales($periodo->nombre).'</td><td>'.$g->Especiales($ContCaliReproPer).'</td>';
 					}
 				}
 			}
