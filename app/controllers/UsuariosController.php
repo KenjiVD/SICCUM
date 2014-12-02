@@ -129,7 +129,8 @@ class UsuariosController extends BaseController {
 		$concole = $seccion->count();
 		$usuario = DB::table("alumno")->where("idAlumno",Session::get("usuario"))->first();
 		$adeudo = ($g->restaFechas($usuario->fecha, $fechaactual))-$concole;
-		return $adeudo;
+		if ($adeudo < 0) {$adeudo = 0;}
+		return "- Adeudos: ".$adeudo;
 	}
 
 	public function AsignarAlumnoCoordinador(){

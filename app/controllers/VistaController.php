@@ -103,6 +103,7 @@ class VistaController extends BaseController {
 		$concole = $seccion->count();
 		$usuario = DB::table("alumno")->where("idAlumno",Session::get("usuario"))->first();
 		$adeudo = ($g->restaFechas($usuario->fecha, $fechaactual))-$concole;
+		if ($adeudo < 0) {$adeudo = 0;}
 		return View::make("colegiaturasalumno")->with("adeudo",$adeudo)->with("colegiaturas",$colegiaturas);
 	}
 

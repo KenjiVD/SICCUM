@@ -16,7 +16,7 @@ class PDFController extends BaseController {
 		$html.= '<img id="logoseguridad" src="img/logo.jpg">';
 		$html.= '<div id="titulo">CENTRO UNIVERSITARIO MESOAMERICANO<br>"'.$g->Especiales("Joaquín Miguel Gutiérrez").'"<br><br><span class="subtitulo">REPORTE DE POSIBLES DESERCIONES POR EL ALUMNADO</span><br><span class="subtitulo">'.$g->Especiales("A continuación  se lista la relación de alumnos quienes presentan calificaciones críticas.").'</span><br></div>';
 		$html.= '<div id="contenido"><table><tr><td>Nombre</td><td>Carrera</td><td>Periodo</td><td>'.$g->Especiales("Número de materias que adeuda").'</td></tr>';
-		
+				
 		foreach ($alumnos as $alumno) {
 			$ContCaliRepro = DB::table("calificaciones")->where("Alumno_idAlumno",$alumno->idAlumno)->where("calificacion","<",70)->count();
 			if ($ContCaliRepro >= 4) {
