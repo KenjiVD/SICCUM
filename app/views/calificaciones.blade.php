@@ -2,10 +2,10 @@
 	<h2>Calificaciones</h2>
 	<table id="table" border="1">
 		<tr>
-			<td>Nivel</td>
-			<td>Periodo</td>
-			<td>Materia</td>
-			<td>Calificacion</td>
+			<th>Nivel</th>
+			<th>Periodo</th>
+			<th>Materia</th>
+			<th>Calificacion</th>
 		</tr>
 		<?php foreach ($calificaiones as $key) { ?>
 			<tr>
