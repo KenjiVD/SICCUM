@@ -17,14 +17,14 @@
 	</header>
 	<div id="name"><h3>Administador</h3></div>
 	<div id="content-table">
-		<div id="solicitudes">
+		<div id="perfiles">
 			<h3>Administrador de Perfiles</h3>
 			<table id="table" border="1">
 				<tr>
 					<td class="negritas">Matricula</td>
 					<td class="negritas">Coordinadores Activos</td>
-					<td class="negritas"><img width="20" src="img/editar.png">Cambio de contraseña</td>
-					<td class="negritas"><img src="img/tacha.png">Dar de baja</td>
+					<td class="negritas">Cambio de contraseña</td>
+					<td class="negritas">Dar de baja</td>
 				</tr>
 				<?php
 					foreach ($coordinadoresactivos as $key) {
@@ -43,9 +43,9 @@
 				<tr>
 					<td class="negritas">Matricula</td>
 					<td class="negritas">Alumnos Activos</td>
-					<td class="negritas"><img width="20" src="img/editar.png">Cambio de contraseña</td>
-					<td class="negritas"><img src="img/tacha.png">Dar de baja</td>
-					<td class="negritas"><img src="img/palomita.png">Dar estatus de graduado</td>
+					<td class="negritas">Cambio de contraseña</td>
+					<td class="negritas">Dar de baja</td>
+					<td class="negritas">Dar estatus de graduado</td>
 				</tr>
 				<?php
 					foreach ($alumnosactivos as $key) {
@@ -65,8 +65,8 @@
 				<tr>
 					<td class="negritas">Matricula</td>
 					<td class="negritas">Coordinadores Inactivos</td>
-					<td class="negritas"><img width="20" src="img/editar.png">Cambio de contraseña</td>
-					<td class="negritas"><img src="img/palomita.png">Dar de alta</td>
+					<td class="negritas">Cambio de contraseña</td>
+					<td class="negritas">Dar de alta</td>
 				</tr>
 				<?php
 					foreach ($coordinadoresinactivos as $key) {
@@ -85,8 +85,8 @@
 				<tr>
 					<td class="negritas">Matricula</td>
 					<td class="negritas">Alumnos Inactivos</td>
-					<td class="negritas"><img width="20" src="img/editar.png">Cambio de contraseña</td>
-					<td class="negritas"><img src="img/palomita.png">Dar de alta</td>
+					<td class="negritas">Cambio de contraseña</td>
+					<td class="negritas">Dar de alta</td>
 				</tr>
 				<?php
 					foreach ($alumnosinactivos as $key) {

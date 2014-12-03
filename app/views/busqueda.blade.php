@@ -29,13 +29,11 @@
     </header>
     <div id="name"><h3>Coordinador:  {{Session::get("nombre")}}</h3></div>
     <div id="content-table">
-    	<div id ="formulario">
+    	<div id ="formularios">
 			<h3>Busqueda</h3><br>
 				<form method="post" action="{{url('/')}}/buscaralumno">
 				<label>Buscar: </label><input type="text" name="texto" placeholder="Acepta matricula, nombre o apellido" required/><input type="submit" value="buscar" />
 			</form>
-		</div>
-        <div id="solicitudes">
             <?php if (isset($alumnos) && $alumnos != null) { ?>
 			<table id="table" border="1">
 				<tr>

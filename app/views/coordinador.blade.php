@@ -28,7 +28,7 @@
     </header>
     <div id="name"><h3>Coordinador:  {{Session::get("nombre")}}</h3></div>
     <div id="content-table">
-        <div id="solicitudes">
+        <div id="permiso">
             <h3>Solicitud de Permiso</h3>
             <table id="table" border="1">
                 <tr>
