@@ -36,6 +36,7 @@ footer p{
 	background-color: #fff;
 	border-radius: 10px;
 }
+
 table{
 	border-collapse: collapse;
 	margin-bottom: 30px;
@@ -44,6 +45,7 @@ table{
 table img{
 	margin-left: 90px;
 }
+
 #conten-menu{
 	width: 1000px;
 	height: 60px;
@@ -90,6 +92,7 @@ table tr td{
 	width: 100px;
 	vertical-align: bottom;
 }
+
 #caja{
 	position: absolute;
 	width: 1000px;
@@ -166,13 +169,36 @@ table tr td{
 .negritas{
 	font-weight: bold;
 }
+#formularios{
+	margin-left: 200px;
+}
+#formularios h2{
+	margin-left: 200px;
+}
 #permisos{
 	margin-left: 200px;
 }
 #permisos h2{
 	margin-left: 200px;
 }
-
+#perfiles{
+	margin-left: 200px;
+}
+#perfiles h2{
+	margin-left: 200px;
+}
+#asignar{
+	margin-left: 200px;
+}
+#asignar h2{
+	margin-left: 200px;
+}
+#permiso{
+	margin-left: 200px;
+}
+#permiso h2{
+	margin-left: 200px;
+}
 #menu .nav{
 	text-align: center;
 	position: relative;

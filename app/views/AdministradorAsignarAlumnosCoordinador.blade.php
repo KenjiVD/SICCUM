@@ -17,13 +17,13 @@
 	</header>
 	<div id="name"><h3>Administador</h3></div>
 	<div id="content-table">
-		<div id="solicitudes">
+		<div id="asignar">
 			<h3>Asignar Coordinador a Alumnos</h3>
 			<table id="table" border="1">
 				<tr>
 					<td class="negritas">Alumno</td>
 					<td class="negritas">Coordinador</td>
-					<td><img src="img/palomita.png">Asignar</td>
+					<td>Asignar</td>
 				</tr>
 				<?php foreach ($alumnos as $key) { ?>
 					<form action="{{url('/')}}/Asignar" method="post">
