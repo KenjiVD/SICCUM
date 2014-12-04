@@ -1,5 +1,5 @@
 body{
-	background-color: #F8F8F8;
+	background-color: #D8D8D8;
 }
 header{
 	width: 1000px;
@@ -29,21 +29,27 @@ footer p{
 }
 #content-table{
 	width: 995px;
-	height: 100%;
 	margin-left: 173;
 	margin-top: 30px;
 	border: solid 1px;
 	border-color: #A80000;
+	background-color: #fff;
 	border-radius: 10px;
 }
 table{
 	border-collapse: collapse;
+	margin-bottom: 30px;
+
+}
+table img{
+	margin-left: 90px;
 }
 #conten-menu{
 	width: 1000px;
 	height: 60px;
 	background-color: #A80000 ;
 	border-bottom: 0px solid #659f17;
+	font-size: 21px;
 }
 #menu li{
 	float:left;
@@ -53,8 +59,8 @@ table{
 }
 #menu li a{
 	text-decoration:none;
-	color:#000;
-	padding:34px;
+	color:#E0E0E0;
+	padding:10px;
 	line-height:40px;
 }
 #menu li a:hover{
@@ -71,13 +77,14 @@ table{
 }
 .listaAlumnos{background-color: #fff;}
 table{
-	margin-top: 50px;
-	margin-left: 200px;
+	margin-top: 30px;
+	margin-left: 10px;
+	width: 600px;
 }
 table th {background-color: #990000; width: 100px;}
 table tr:nth-child(odd) {background-color: #993333;}
 
-table tr:nth-child(even) {background-color: #fff;}
+table tr:nth-child(even) {background-color: #E8E8E8;}
 table tr td{
 	border: 1px solid #A80000 ;
 	width: 100px;
@@ -165,10 +172,7 @@ table tr td{
 #permisos h2{
 	margin-left: 200px;
 }
-#formulario{
-	margin-top: 100px;
-	margin-left: 400px;
-}
+
 #menu .nav{
 	text-align: center;
 	position: relative;
@@ -211,4 +215,23 @@ table tr td{
 }
 
 #menu .nav li ul li ul {
+}
+#formulario{
+	margin-left: 200px;
+	width: 300px;
+	height: 300px;
+	margin-bottom: 40px;
+}
+#formulario textarea{
+	width: 300px;
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+#formulario input{
+	margin-left: 15px;
+}
+#filtro{
+	margin-top: -40px;
+	margin-left: 350px;
+	margin-bottom: 20px;
 }

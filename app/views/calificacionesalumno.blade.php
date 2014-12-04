@@ -16,7 +16,7 @@
 	</div>
 	</header>
 	<div id="name"><h3>Alumno:   {{Session::get("nombre")}}</h3></div>
-	<div>
+	<div id="filtro">
 		<label>Filtro por nivel</label>
         <select id="nivel"><?php foreach ($niveles as $key) { ?>
             <option value="{{$key->idnivel}}">{{$key->nombre}}</option>

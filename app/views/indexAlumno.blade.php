@@ -15,7 +15,7 @@
         </ul>
 	</div>
 	</header>
-	<div id="name"><h3>Alumno:   {{Session::get("nombre")}}</h3></div>
+	<div id="name"><h4>Alumno:   {{Session::get("nombre")}}</h4></div>
 	<div id="content-table">
 		<div id="permisos">
 			<h2>Permisos Solicitados</h2>
@@ -37,8 +37,8 @@
 			</table>
 		</div>
 		<div id ="formulario">
-			<h3>Nueva solicitud</h3><br>
-			<form method="POST" action="{{url('NuevoPermiso')}}" enctype="multipart/form-data">
+			<h3>Nueva solicitud</h3>
+			<form id="form-alumno" method="POST" action="{{url('NuevoPermiso')}}" enctype="multipart/form-data">
 				<textarea placeholder="Escriba motivo de permiso" name="address"cols="30" rows="4"></textarea><br><br>
 				<input name="uploadedfile" type="file" accept="image/jpg,image/jpeg,image/png,application/pdf" required/><br><br>
 				<label>Inicio del permiso</label><input placeholder="yyyy-mm-dd" type="date" name="inicio" required/><br><br>
