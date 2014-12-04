@@ -21,9 +21,9 @@
 			<h3>Asignar Coordinador a Alumnos</h3>
 			<table id="table" border="1">
 				<tr>
-					<td class="negritas">Alumno</td>
-					<td class="negritas">Coordinador</td>
-					<td>Asignar</td>
+					<th class="negritas">Alumno</th>
+					<th class="negritas">Coordinador</th>
+					<th>Asignar</th>
 				</tr>
 				<?php foreach ($alumnos as $key) { ?>
 					<form action="{{url('/')}}/Asignar" method="post">

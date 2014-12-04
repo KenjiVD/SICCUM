@@ -21,9 +21,9 @@
 			<h2>Permisos Solicitados</h2>
 			<table id="table" border="1">
 				<tr>
-					<td>Fecha</td>
-					<td>Estatus</td>
-					<td>Archivo</td>
+					<th>Fecha</th>
+					<th>Estatus</th>
+					<th>Archivo</th>
 				</tr>
 				<?php
 				$g = new HomeController();

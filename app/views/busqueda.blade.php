@@ -37,11 +37,11 @@
             <?php if (isset($alumnos) && $alumnos != null) { ?>
 			<table id="table" border="1">
 				<tr>
-					<td>Matricula</td>
-					<td>Nombre</td>
-                    <td>Estado</td>
-					<td>Calificaciones</td>
-					<td>Adeudos</td>
+					<th>Matricula</th>
+					<th>Nombre</th>
+                    <th>Estado</th>
+					<th>Calificaciones</th>
+					<th>Adeudos</th>
 				</tr>
                 <?php if (isset($alumnosgraduados) && $alumnosgraduados != null) {
                 foreach ($alumnosgraduados as $key) { ?>

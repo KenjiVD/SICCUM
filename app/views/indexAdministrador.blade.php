@@ -21,10 +21,10 @@
 			<h3>Administrador de Perfiles</h3>
 			<table id="table" border="1">
 				<tr>
-					<td class="negritas">Matricula</td>
-					<td class="negritas">Coordinadores Activos</td>
-					<td class="negritas">Cambio de contraseña</td>
-					<td class="negritas">Dar de baja</td>
+					<th class="negritas">Matricula</th>
+					<th class="negritas">Coordinadores Activos</th>
+					<th class="negritas">Cambio de contraseña</th>
+					<th class="negritas">Dar de baja</th>
 				</tr>
 				<?php
 					foreach ($coordinadoresactivos as $key) {
@@ -41,11 +41,11 @@
 			</table>
 			<table id="table" border="1">
 				<tr>
-					<td class="negritas">Matricula</td>
-					<td class="negritas">Alumnos Activos</td>
-					<td class="negritas">Cambio de contraseña</td>
-					<td class="negritas">Dar de baja</td>
-					<td class="negritas">Dar estatus de graduado</td>
+					<th class="negritas">Matricula</th>
+					<th class="negritas">Alumnos Activos</th>
+					<th class="negritas">Cambio de contraseña</th>
+					<th class="negritas">Dar de baja</th>
+					<th class="negritas">Dar estatus de graduado</th>
 				</tr>
 				<?php
 					foreach ($alumnosactivos as $key) {
@@ -63,10 +63,10 @@
 			</table>
 			<table id="table" border="1">
 				<tr>
-					<td class="negritas">Matricula</td>
-					<td class="negritas">Coordinadores Inactivos</td>
-					<td class="negritas">Cambio de contraseña</td>
-					<td class="negritas">Dar de alta</td>
+					<th class="negritas">Matricula</th>
+					<th class="negritas">Coordinadores Inactivos</th>
+					<th class="negritas">Cambio de contraseña</th>
+					<th class="negritas">Dar de alta</th>
 				</tr>
 				<?php
 					foreach ($coordinadoresinactivos as $key) {
@@ -83,10 +83,10 @@
 			</table>
 			<table id="table" border="1">
 				<tr>
-					<td class="negritas">Matricula</td>
-					<td class="negritas">Alumnos Inactivos</td>
-					<td class="negritas">Cambio de contraseña</td>
-					<td class="negritas">Dar de alta</td>
+					<th class="negritas">Matricula</th>
+					<th class="negritas">Alumnos Inactivos</th>
+					<th class="negritas">Cambio de contraseña</th>
+					<th class="negritas">Dar de alta</th>
 				</tr>
 				<?php
 					foreach ($alumnosinactivos as $key) {

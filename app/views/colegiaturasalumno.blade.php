@@ -22,7 +22,7 @@
 			<h3>Numero de colegiaturas que faltan por pagar:   {{$adeudo}}</h3>
 			<table id="table" border="1">
 				<tr>
-					<td>Fechas de pagos de colegiaturas realizadas</td>
+					<th>Fechas de pagos de colegiaturas realizadas</th>
 				</tr>
 				<?php foreach ($colegiaturas as $key) { ?>
 					<tr>

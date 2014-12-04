@@ -53,7 +53,7 @@
             </table>
             <?php if (isset($criticos) && $criticos != null) { ?>
             <h3>Alumnos promedio critico</h3>
-            <table id="table2" border="1">
+            <table id="table" border="1">
                 <tr>
                     <th>Nombre del Alumno</th>
                     <th>Promedio</th>
