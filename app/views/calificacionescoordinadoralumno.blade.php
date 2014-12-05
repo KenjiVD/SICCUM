@@ -30,7 +30,7 @@
         <h3>Coordinador:  {{Session::get("nombre")}}</h3><br>
         <h3>Calificaciones de: {{$alumno->nombre}}</h3>
     </div>
-    <div>
+    <div id="filtro">
         <label>Filtro por nivel</label>
         <select id="nivel"><?php foreach ($niveles as $key) { ?>
             <option value="{{$key->idnivel}}">{{$key->nombre}}</option>
@@ -39,13 +39,13 @@
         <input type="button" id="EnvioC" value="Aplicar"/>
     </div>
     <div id="content-table">
-        <div id="solicitudes">
+        <div id="coordinadorcal">
             <table id="table" border="1">
                     <tr>
-                    	<td>Nivel</td>
-						<td>Periodo</td>
-						<td>Materia</td>
-						<td>Calificacion</td>
+                    	<th>Nivel</th>
+						<th>Periodo</th>
+						<th>Materia</th>
+						<th>Calificacion</th>
 					</tr>
 					<?php foreach ($calificaiones as $key) { ?>
 						<tr>

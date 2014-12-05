@@ -181,6 +181,12 @@ table tr td{
 #permisos h2{
 	margin-left: 200px;
 }
+#coordinadorcal{
+	margin-left: 200px;
+}
+#coordinadorcal h2{
+	margin-left: 200px;
+}
 #perfiles{
 	margin-left: 200px;
 }
@@ -258,6 +264,6 @@ table tr td{
 }
 #filtro{
 	margin-top: -40px;
-	margin-left: 350px;
+	margin-left: 500px;
 	margin-bottom: 20px;
 }

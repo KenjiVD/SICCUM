@@ -28,12 +28,12 @@
     </header>
     <div id="name"><h3>Coordinador:  {{Session::get("nombre")}}</h3></div>
     <div id="content-table">
-        <div id="solicitudes">
+        <div id="coordinadorcal">
             <h3>Colegiaturas de: {{$alumno->nombre}}</h3>
             <h3>Numero de colegiaturas que faltan por pagar:   {{$adeudo}}</h3>
             <table id="table" border="1">
                     <tr>
-						<td>Fechas de pagos de colegiaturas realizadas</td>
+						<th>Fechas de pagos de colegiaturas realizadas</th>
 					</tr>
 					<?php foreach ($colegiaturas as $key) { ?>
 						<tr>
