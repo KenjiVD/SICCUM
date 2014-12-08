@@ -28,14 +28,14 @@
 				<?php foreach ($alumnos as $key) { ?>
 					<form action="{{url('/')}}/Asignar" method="post">
 						<tr>
-							<th class="listaAlumnos"><input name="id" type="hidden" value="{{$key->idAlumno}}"/>{{$key->nombre}}</th>
-							<th class="listaAlumnos"><select name="coordinador" required>
+							<td class="listaAlumnos"><input name="id" type="hidden" value="{{$key->idAlumno}}"/>{{$key->nombre}}</td>
+							<td class="listaAlumnos"><select name="coordinador" required>
 									<option value="">Coordinador</option>
 									<?php foreach ($coordinadores as $key) { ?>
 										<option value="{{$key->idCoordinador}}">{{$key->idCoordinador}} -> {{$key->nombre}}</option>
 									<?php }?>
-								</select><br></th>
-							<th class="listaAlumnos"><input value="Enviar" type="image" src="img/palomita.png">Asignar</th>
+								</select><br></td>
+							<td class="listaAlumnos"><input value="Enviar" type="image" src="img/palomita.png">Asignar</td>
 						</tr>
 					</form>
 				<?php } ?>

@@ -65,10 +65,10 @@ class AlumnoController extends BaseController {
 		}
 	}
 	public function AccionPermiso($accion,$id){
-		if ($accion == 1) {
-			DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 1));
-		}else{
-			DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 2));
+		$alumno = DB::table("alumno")->where("idAlumno",$id)->first();
+		if ($alumno->Coordinador_idCoordinador==Session::get("usuario")) {
+			if ($accion == 1) {DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 1));}
+			else{DB::table("permiso")->where("idpermiso",$id)->update(array("estado" => 2));}
 		}
 		return Redirect::to("/inicio");
 	}
