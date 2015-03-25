@@ -14,19 +14,6 @@ class CalificacionController extends BaseController {
 			"Alumno_idAlumno" => $CaCalumno->idAlumno,
 			"calificacion" =>$_POST["calificacion"]));
 		
-		$CaCmateria = DB::table("materia")->select(array('idmateria',"materia.nombre as nombrem","carrera.nombre as nombrec"))->join(
-			"carrera",function($join){
-				$join->on("materia.carrera_idcarrera","=","carrera.idcarrera");
-			})->get();
-		$CaCcarrera = DB::table("carrera")->get();
-		$CaCperiodo = DB::table("periodo")->get();
-		$CaCgrupo = DB::table("grupo")->get();
-		$CaCnivel = DB::table("nivel")->get();
-		return View::make('index')
-		->with("carrera",$CaCcarrera)
-		->with("periodo",$CaCperiodo)
-		->with("grupo",$CaCgrupo)
-		->with("nivel",$CaCnivel)
-		->with("materia",$CaCmateria);
+		return Redirect::to("/inicio");
 	}
 }

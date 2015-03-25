@@ -17,21 +17,7 @@ class AlumnoController extends BaseController {
 		$AlCmatricula = $AlCmatricula.$AlCmat;
 
 		DB::table("alumno")->where("idAlumno",$AlCmat)->update(array("matriculaa" => $AlCmatricula,"contrasena" => $AlCmatricula));
-		
-		$AlCmateria = DB::table("materia")->select(array('idmateria',"materia.nombre as nombrem","carrera.nombre as nombrec"))->join(
-			"carrera",function($join){
-				$join->on("materia.carrera_idcarrera","=","carrera.idcarrera");
-			})->get();
-		$AlCcarrera = DB::table("carrera")->get();
-		$AlCperiodo = DB::table("periodo")->get();
-		$AlCgrupo = DB::table("grupo")->get();
-		$AlCnivel = DB::table("nivel")->get();
-		return View::make('index')
-		->with("carrera",$AlCcarrera)
-		->with("periodo",$AlCperiodo)
-		->with("grupo",$AlCgrupo)
-		->with("nivel",$AlCnivel)
-		->with("materia",$AlCmateria);
+		return Redirect::to("/inicio");
 	}
 
 	public function NuevoPermiso(){
