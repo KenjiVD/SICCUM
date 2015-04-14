@@ -1,6 +1,7 @@
 <?php
 
 class VistaController extends BaseController {
+	/*Esta funcion tiene como objetio crear la vista de inicio de un usuario dependiendo de su tipo*/
 	public function VistaInicio(){
 		switch (Session::get("tipo")) {
 			case 1:
@@ -62,7 +63,7 @@ class VistaController extends BaseController {
 				break;
 		}
 	}
-
+	/*Esta funcion tiene como objetivo obtener y mostrar una lista de calificaciones ordenada del alumno*/
 	public function VistaCalificacionesAlumno(){
 		$ViCcalificaciones = DB::table("calificaciones")->select(array("nivel.nombre as nombren","periodo.nombre as nombrep","materia.nombre as nombrem","calificaciones.calificacion as calificacion"))
 		->join("materia",function($join){
@@ -77,7 +78,8 @@ class VistaController extends BaseController {
 		return View::make("calificacionesalumno")
 		->with("calificaiones", $ViCcalificaciones)->with("niveles",$ViCniveles);
 	}
-
+	/*Esta funcion tiene como objetivo obtener y mostrar una lista de calificaciones ordenada de un alumno solicitado por 
+	un coordinador*/
 	public function VistaCoordinadorCalificacionesAlumno($ViCid){
 		$ViCalumno = DB::table("alumno")->where("idAlumno",$ViCid)->first();
 		if ($ViCalumno->Coordinador_idCoordinador==Session::get("usuario")) {
@@ -95,7 +97,8 @@ class VistaController extends BaseController {
 			->with("calificaiones", $ViCcalificaciones)->with("alumno",$ViCalumno)->with("niveles",$ViCniveles);
 		}else{return Redirect::to('/inicio');}
 	}
-
+	/*Esta funcion tiene como objetivo obtener y mostrar una lista de colegiaturas realizadas por el alumno y si este 
+	tiene adeudos*/
 	public function VistaColegiaturasAlumno(){
 		$ViCg = new HomeController();
 		date_default_timezone_set('America/Mexico_City');
@@ -108,7 +111,8 @@ class VistaController extends BaseController {
 		if ($ViCadeudo < 0) {$ViCadeudo = 0;}
 		return View::make("colegiaturasalumno")->with("adeudo",$ViCadeudo)->with("colegiaturas",$ViCcolegiaturas);
 	}
-
+	/*Esta funcion tiene como objetivo obtener y mostrar una lista de colegiaturas realizadas por un alumno solicitado por
+	un coordinador y si este tiene adeudos*/
 	public function VistaCoordinadorColegiaturasAlumno($ViCid){
 		$ViCusuario = DB::table("alumno")->where("idAlumno",$ViCid)->first();
 		if ($ViCusuario->Coordinador_idCoordinador==Session::get("usuario")) {
@@ -123,19 +127,19 @@ class VistaController extends BaseController {
 			return View::make("colegiaturascoordinadoralumno")->with("adeudo",$ViCadeudo)->with("colegiaturas",$ViCcolegiaturas)->with("alumno",$ViCusuario);
 		}else{return Redirect::to('/inicio');}
 	}
-
+	/*Esta funcion crea la vista de busqueda de alumnos para un coordinador*/
 	public function VistaBusquedaAlumno(){
 		$ViCalumnos = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil","<",2)->orderBy('idAlumno', 'asc')->get();
 		$ViCalumnosgraduados = DB::table("alumno")->where("Coordinador_idCoordinador", Session::get("usuario"))->where("estadoperfil",2)->orderBy('idAlumno', 'asc')->get();
 		return View::make("busqueda")->with("alumnos",$ViCalumnos)->with("alumnosgraduados",$ViCalumnosgraduados);
 	}
-
+	/*Esta funcion crea para los administradores, una lista con todos los alumnos que no estan asignados a un coordinador*/
 	public function VistaAsignarAlumnoCoordinador(){
 		$ViCalumnos = DB::table("alumno")->where("estadoperfil", 1)->where("Coordinador_idCoordinador", null)->orderBy('idAlumno', 'asc')->get();
 		$ViCcoordinadores = DB::table("coordinador")->where("estadoperfil", 1)->orderBy('idCoordinador', 'asc')->get();
 		return View::make("AdministradorAsignarAlumnosCoordinador")->with("alumnos", $ViCalumnos)->with("coordinadores", $ViCcoordinadores);
 	}
-
+	/*Esta funcion crea la vista del panel de cambio de contraseña para coordinadores y alumnos*/
 	public function VistaCambioContrasena($ViCtipo,$ViCid){
 		if ($ViCtipo==3) {
 			$ViCusuario = DB::table("coordinador")->where("idCoordinador",$ViCid)->first();
