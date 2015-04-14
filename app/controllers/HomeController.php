@@ -14,6 +14,7 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
+	/*Esta funcion sirve para calcular en meses la diferencia que hay entre 2 fechas especificas*/
 	public function restaFechas($HoCdFecIni, $HoCdFecFin){
 		$HoCdFecIni = str_replace("-"," ",$HoCdFecIni);
 		$HoCdFecIni = str_replace("/"," ",$HoCdFecIni);
@@ -31,7 +32,8 @@ class HomeController extends BaseController {
 
 		return $HoCmes_diferencia;
 	}
-
+	/*Esta funcion sirve para validar que los datos de un arreglo sean distintos de null, vacios y que estos esten bien 
+	declarados*/
 	public function ValidarNoVacio($HoCarray){
 		$HoCvalor = true;
 		foreach ($HoCarray as $HoCkey) {
@@ -41,7 +43,7 @@ class HomeController extends BaseController {
 		}
 		return $HoCvalor;
 	}
-
+	/*Esta funcion sirve para identificar un estado con base a un parametro enviado*/
 	public function Estado($HoCvalue){
 		if ($HoCvalue == 0) {
 			return "No visto";
@@ -51,7 +53,7 @@ class HomeController extends BaseController {
 			return "Rechazado";
 		}
 	}
-
+	/*Esta funcion sirve para identificar un estado con base a un parametro enviado*/
 	public function EstadoAlumno($HoCvalue){
 		if ($HoCvalue == 0) {
 			return "Inactivo";
@@ -61,13 +63,14 @@ class HomeController extends BaseController {
 			return "Graduado";
 		}
 	}
-
+	/*Esta funcion sirve para ordenar una fecha en dd/mm/yyyy*/
 	public function FechaNormal($HoCvalue){
 		$HoCcadena = explode("-", $HoCvalue);
 		$HoCvalue = $HoCcadena[2]."/".$HoCcadena[1]."/".$HoCcadena[0];
 		return $HoCvalue;
 	}
-
+	/*Esta funcion sirve para validar que un dato sea distinto de null, vacio y que este bien 
+	declarado*/
 	public function ValidarNoVacioUno($HoCvalue){
 		$HoCvalor = true;
 		if(!isset($HoCvalue) || $HoCvalue==null || $HoCvalue==" "){
@@ -75,13 +78,13 @@ class HomeController extends BaseController {
 		}
 		return $HoCvalor;
 	}
-	
+	/*Esta funcion sirve para identificar la extencion que tiene un archivo*/
 	public function obtenerExt($HoCvalue){
 		$HoCnombre=explode(".", $HoCvalue);
 		$HoCtam = count($HoCnombre);
 		return $HoCnombre[$HoCtam-1];
 	}
-
+	/*Esta funcion sire para tranformar caracteres especiales a una forma legible al html usada solo en PDFControlles*/
 	public function Especiales($HoCtexto){
 		if (strpos($HoCtexto, " ")) { $HoCtexto = str_replace(" ", "&nbsp;", $HoCtexto);}
 		if (strpos($HoCtexto, "¡")) { $HoCtexto = str_replace("¡", "&iexcl;", $HoCtexto);}
