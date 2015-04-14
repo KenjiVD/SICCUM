@@ -1,6 +1,8 @@
 <?php
 
 class AlumnoController extends BaseController {
+	/*Esta funcion sirve para crear un nuevo alumno en la base de datos, con base al llenado de un formulario previo
+	una vez que realiza la operacion redirige a la pagina de inicio del sistema*/
 	public function Nuevo(){
 		date_default_timezone_set('America/Mexico_City');
 		$AlCfecha = date('Y-m-d');
@@ -19,7 +21,8 @@ class AlumnoController extends BaseController {
 		DB::table("alumno")->where("idAlumno",$AlCmat)->update(array("matriculaa" => $AlCmatricula,"contrasena" => $AlCmatricula));
 		return Redirect::to("/inicio");
 	}
-
+	/*Esta funcion sirve para crear un nuevo permiso en la base de datos, con base al llenado de un formulario previo
+	una vez que realiza la operacion redirige a la pagina de inicio del sistema*/
 	public function NuevoPermiso(){
 		$AlCg = new HomeController();
 		$AlCdatos = array();
@@ -50,6 +53,8 @@ class AlumnoController extends BaseController {
 			return Redirect::to("/inicio");
 		}
 	}
+	/*Esta funcion sirve para actualizar el estado en la base de datos de un permiso solicitado a un coordinador a 
+	aceptado o rechazado, una vez que realiza la operacion redirige a la pagina de inicio del sistema*/
 	public function AccionPermiso($AlCaccion,$AlCid){
 		$AlCalumno = DB::table("alumno")->where("idAlumno",$AlCid)->first();
 		if ($AlCalumno->Coordinador_idCoordinador==Session::get("usuario")) {
