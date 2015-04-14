@@ -1,6 +1,8 @@
 <?php
 
 class CalificacionController extends BaseController {
+	/*Esta funcion sirve para crear una nueva calificacion para un alumno en la base de datos, con base al llenado de un 
+	formulario previo, una vez que realiza la operacion redirige a la pagina de inicio del sistema*/
 	public function Nuevo(){
 		$CaCalumno = DB::table("alumno")->where('matriculaa', $_POST["matricula"])->first();
 
