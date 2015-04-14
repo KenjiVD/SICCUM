@@ -1,6 +1,8 @@
 <?php
 
 class PDFController extends BaseController {
+	/*Esta funcion crea todo el codigo html necesario para la creacion del pdf de reporte de los coordinadores con base a 
+	los datos guardados en la base de datos*/
 	public function GenerarPDF(){
 		date_default_timezone_set('America/Mexico_City');
         $PDFCfecha = date('d-m-Y H:i:s');
